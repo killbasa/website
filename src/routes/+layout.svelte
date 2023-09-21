@@ -13,7 +13,7 @@
 		display: flex;
 		flex-direction: column;
 		height: 100vh;
-		margin-right: auto;
-		margin-left: auto;
+		margin-left: 2rem;
+		margin-right: 2rem;
 	}
 </style>
