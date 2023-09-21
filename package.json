@@ -1,0 +1,64 @@
+{
+	"name": "portfolio-website",
+	"version": "0.0.1",
+	"author": "killbasa <contact@shaneb.xyz>",
+	"type": "module",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/killbasa/website.git"
+	},
+	"homepage": "https://github.com/killbasa/website",
+	"engines": {
+		"node": "20.x"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"lint": "prettier --check . && eslint src --ext ts,svelte",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier --write .",
+		"ci": "bun run check && bun run lint && bun run build"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^17.7.1",
+		"@commitlint/config-conventional": "^17.7.0",
+		"@sveltejs/adapter-static": "^2.0.3",
+		"@sveltejs/kit": "^1.25.0",
+		"@typescript-eslint/eslint-plugin": "^6.7.2",
+		"@typescript-eslint/parser": "^6.7.2",
+		"eslint": "^8.49.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-prettier": "^5.0.0",
+		"eslint-plugin-svelte": "^2.33.2",
+		"husky": "^8.0.3",
+		"lint-staged": "^14.0.1",
+		"prettier": "^3.0.3",
+		"prettier-plugin-svelte": "^3.0.3",
+		"svelte": "^4.2.1",
+		"svelte-check": "^3.5.2",
+		"svelte-eslint-parser": "^0.33.0",
+		"typescript": "^5.2.2",
+		"vite": "^4.4.9"
+	},
+	"lint-staged": {
+		"*.{mjs,cjs,js,ts}": [
+			"eslint --fix --ext js,ts",
+			"prettier --write --loglevel=warn \"**/*.{mjs,cjs,js,ts}\""
+		],
+		"*.{svelte}": [
+			"eslint --fix --ext svelte",
+			"prettier --write --loglevel=warn \"**/*.svelte\""
+		],
+		"*.{json,yml,yaml,md}": [
+			"prettier --write --loglevel=warn \"**/*.{json,yml,yaml,md}\""
+		]
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	}
+}
