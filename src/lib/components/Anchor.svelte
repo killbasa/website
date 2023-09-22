@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let title: string;
+	export let title: string | undefined = undefined;
 	export let href: string;
 
 	export let external = false;
@@ -9,10 +9,12 @@
 	{href}
 	rel={external ? 'noopener noreferrer' : undefined}
 	target={external ? '_blank' : undefined}
-	class="button"
+	{...$$restProps}
 >
 	<slot />
-	{title}
+	{#if title}
+		{title}
+	{/if}
 </a>
 
 <style>

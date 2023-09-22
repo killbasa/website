@@ -5,37 +5,50 @@
 	import Discord from '$components/svg/Discord.svelte';
 	import Email from '$components/svg/Email.svelte';
 	import GitHub from '$components/svg/GitHub.svelte';
+	import Terminal from '$components/svg/Terminal.svelte';
 </script>
 
 <svelte:head>
 	<title>Shane Brown</title>
 </svelte:head>
 
-<div>
+<section>
 	<header>
 		<img alt="Shane's avatar" src={ProfilePicture} />
 		<h1>Shane Brown</h1>
 		<p>Full-stack Developer</p>
 	</header>
 	<Card>
-		<Anchor title="GitHub" href="https://github.com/killbasa" external>
+		<Anchor title="GitHub" class="button" href="https://github.com/killbasa" external>
 			<GitHub />
 		</Anchor>
-		<Anchor title="Discord" href="https://discordapp.com/users/137657554200166401" external>
+		<Anchor
+			title="Discord"
+			class="button"
+			href="https://discordapp.com/users/137657554200166401"
+			external
+		>
 			<Discord />
 		</Anchor>
-		<Anchor title="Email" href="mailto:contact@shaneb.xyz" external>
+		<Anchor title="Email" class="button" href="mailto:contact@shaneb.xyz">
 			<Email />
 		</Anchor>
+		<Anchor
+			title="Dotfiles"
+			class="button"
+			href="https://github.com/killbasa/dotfiles"
+			external
+		>
+			<Terminal />
+		</Anchor>
 	</Card>
-</div>
+</section>
 
 <style>
-	div {
+	section {
 		display: flex;
 		flex-direction: column;
-		height: 100%;
-		margin-top: -8em;
+		height: 70vh;
 		justify-content: center;
 		align-items: center;
 		gap: 1rem;
@@ -52,10 +65,5 @@
 		max-width: 128px;
 		max-height: 128px;
 		margin-bottom: 0.5rem;
-	}
-
-	h1 {
-		font-weight: 800;
-		font-size: 20pt;
 	}
 </style>

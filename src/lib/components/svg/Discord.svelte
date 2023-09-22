@@ -4,8 +4,8 @@
 </script>
 
 <svg
-	height={`${height}px`}
-	width={`${width}px`}
+	height="{height}px"
+	width="{width}px"
 	viewBox="0 0 24 24"
 	aria-hidden="true"
 	focusable="false"
