@@ -2,6 +2,7 @@
 	"name": "portfolio-website",
 	"version": "0.0.1",
 	"author": "killbasa <contact@shaneb.xyz>",
+	"license": "MIT",
 	"type": "module",
 	"private": true,
 	"repository": {
