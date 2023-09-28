@@ -39,6 +39,13 @@
 		<ProjectItem title="Rust CLI" href="https://github.com/killbasa/cli" external>
 			Personal CLI to make life a little easier
 		</ProjectItem>
+		<ProjectItem
+			title="Svelte YouTube"
+			href="https://github.com/killbasa/svelte-youtube"
+			external
+		>
+			Zero dependency YouTube iframe API wrapper for Svelte
+		</ProjectItem>
 	</ul>
 </section>
 
