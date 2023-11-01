@@ -1,9 +1,13 @@
-<script lang="ts">
-	export let title: string;
-	export let href: string;
-	export let external = false;
-</script>
+---
+interface Props {
+	title: string;
+	href: string;
+	external?: boolean;
+}
 
+const { title, href, external = false } = Astro.props;
+
+---
 <li>
 	<a
 		{href}
