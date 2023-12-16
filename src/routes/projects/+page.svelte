@@ -14,14 +14,16 @@
 		<ProjectItem title="Amaneko" href="https://github.com/killbasa/Amaneko" external>
 			Discord bot for VTuber livestream chat relays and notifications
 		</ProjectItem>
-		<ProjectItem title="Tagg" href="https://github.com/CRSDPoyoyo/tagg" external>
-			Create and share timestamps on YouTube livestreams and VoDs
+		<ProjectItem title="CLI" href="https://github.com/killbasa/cli" external>
+			A personal CLI to make life a little easier
 		</ProjectItem>
 	</ul>
 
 	<h2>Planning</h2>
 	<ul>
-		<li>None</li>
+		<ProjectItem title="Tagg" href="https://github.com/CRSDPoyoyo/tagg" external>
+			Create and share timestamps on YouTube livestreams and VoDs
+		</ProjectItem>
 	</ul>
 
 	<h2>Maintenance</h2>
@@ -35,9 +37,6 @@
 			external
 		>
 			An ioredis wrapper to improve development experience
-		</ProjectItem>
-		<ProjectItem title="Rust CLI" href="https://github.com/killbasa/cli" external>
-			Personal CLI to make life a little easier
 		</ProjectItem>
 		<ProjectItem
 			title="Svelte YouTube"
@@ -53,7 +52,6 @@
 	section {
 		display: flex;
 		flex-direction: column;
-		height: 70vh;
 		gap: 1rem;
 		max-width: 960px;
 		margin: 3rem auto 1.5rem;
