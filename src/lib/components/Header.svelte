@@ -15,6 +15,11 @@
 	header {
 		display: flex;
 		justify-content: center;
+		z-index: 999;
+	}
+
+	nav {
+		position: fixed;
 	}
 
 	ul {
