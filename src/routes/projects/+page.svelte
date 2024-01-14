@@ -9,13 +9,23 @@
 <section>
 	<h1>Projects</h1>
 
-	<h2>In progress</h2>
+	<h2>Active</h2>
 	<ul>
 		<ProjectItem title="Amaneko" href="https://github.com/killbasa/Amaneko" external>
 			Discord bot for VTuber livestream chat relays and notifications
 		</ProjectItem>
 		<ProjectItem title="CLI" href="https://github.com/killbasa/cli" external>
 			A personal CLI to make life a little easier
+		</ProjectItem>
+		<ProjectItem title="vt" href="https://github.com/killbasa/vt" external>
+			Check upcoming VTuber streams in your terminal
+		</ProjectItem>
+		<ProjectItem
+			title="Redis utilities"
+			href="https://github.com/killbasa/redis-utils"
+			external
+		>
+			An ioredis wrapper to improve development experience
 		</ProjectItem>
 	</ul>
 
@@ -30,13 +40,6 @@
 	<ul>
 		<ProjectItem title="KBot" href="https://github.com/KBot-discord/KBot" external>
 			A multi-purpose Discord bot using Sapphire and discord.js
-		</ProjectItem>
-		<ProjectItem
-			title="Redis utilities"
-			href="https://github.com/killbasa/redis-utils"
-			external
-		>
-			An ioredis wrapper to improve development experience
 		</ProjectItem>
 		<ProjectItem
 			title="Svelte YouTube"
