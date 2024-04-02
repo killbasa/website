@@ -11,6 +11,9 @@
 
 	<h2>Active</h2>
 	<ul>
+		<ProjectItem title="Hive" href="https://github.com/killbasa/hive" external>
+			YouTube channel archive manager
+		</ProjectItem>
 		<ProjectItem title="Amaneko" href="https://github.com/killbasa/Amaneko" external>
 			Discord bot for VTuber livestream chat relays and notifications
 		</ProjectItem>
@@ -40,13 +43,6 @@
 	<ul>
 		<ProjectItem title="KBot" href="https://github.com/KBot-discord/KBot" external>
 			A multi-purpose Discord bot using Sapphire and discord.js
-		</ProjectItem>
-		<ProjectItem
-			title="Svelte YouTube"
-			href="https://github.com/killbasa/svelte-youtube"
-			external
-		>
-			Zero dependency YouTube iframe API wrapper for Svelte
 		</ProjectItem>
 	</ul>
 </section>
