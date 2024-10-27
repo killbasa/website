@@ -1,9 +1,9 @@
 .DS_Store/
 .git/
 .svelte-kit/
-.yarn/
 build/
 node_modules/
+static/
 .env
 .env.*
 !.env.example

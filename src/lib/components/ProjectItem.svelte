@@ -1,7 +1,17 @@
 <script lang="ts">
-	export let title: string;
-	export let href: string;
-	export let external = false;
+	import type { Snippet } from 'svelte';
+
+	let {
+		title,
+		href,
+		external = false,
+		children
+	}: {
+		title: string;
+		href: string;
+		external?: boolean;
+		children: Snippet;
+	} = $props();
 </script>
 
 <li>
@@ -14,7 +24,7 @@
 			<h3>{title}</h3>
 			<hr />
 			<p>
-				<slot />
+				{@render children()}
 			</p>
 		</div>
 	</a>

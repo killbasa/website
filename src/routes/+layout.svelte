@@ -2,13 +2,9 @@
 	import '$lib/styles/reset.css';
 	import '$lib/styles/fonts.css';
 	import '$lib/styles/global.css';
-
-	import Header from '$components/Header.svelte';
 </script>
 
 <div>
-	<Header />
-
 	<main>
 		<slot />
 	</main>
@@ -19,6 +15,7 @@
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
+		margin: 4rem;
 	}
 
 	main {

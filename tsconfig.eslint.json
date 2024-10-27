@@ -3,5 +3,5 @@
 	"compilerOptions": {
 		"noEmit": true
 	},
-	"include": ["src", ".eslintrc.cjs", "svelte.config.js", "vite.config.ts"]
+	"include": ["src", "eslint.config.js", "svelte.config.js", "vite.config.ts"]
 }

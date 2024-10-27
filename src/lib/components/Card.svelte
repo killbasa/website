@@ -1,5 +1,15 @@
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+
+	let {
+		children
+	}: {
+		children: Snippet;
+	} = $props();
+</script>
+
 <div>
-	<slot />
+	{@render children()}
 </div>
 
 <style>
@@ -9,6 +19,7 @@
 		gap: 0.5rem;
 		justify-content: center;
 		padding: 1rem;
+		width: fit-content;
 		border-radius: var(--border-radius);
 		box-shadow: var(--shadow);
 		background-color: var(--background-alt);

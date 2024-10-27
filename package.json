@@ -1,5 +1,5 @@
 {
-	"name": "portfolio-website",
+	"name": "website",
 	"version": "0.0.1",
 	"author": "killbasa <contact@shaneb.xyz>",
 	"license": "MIT",
@@ -10,59 +10,48 @@
 		"url": "https://github.com/killbasa/website.git"
 	},
 	"homepage": "https://github.com/killbasa/website",
-	"engines": {
-		"node": ">=20.x"
-	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"lint": "prettier --check . && eslint src --ext ts,svelte",
-		"lint:fix": "eslint . --fix",
+		"sync": "svelte-kit sync",
+		"check": "pnpm sync && svelte-check --tsconfig ./tsconfig.json",
+		"lint": "eslint --fix",
 		"format": "prettier --write .",
-		"ci": "yarn check && yarn lint && yarn build"
+		"ci": "pnpm check && pnpm lint && pnpm build"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.2.1",
-		"@commitlint/config-conventional": "^19.1.0",
-		"@sveltejs/adapter-cloudflare": "^4.2.0",
-		"@sveltejs/kit": "^2.5.5",
-		"@sveltejs/vite-plugin-svelte": "^3.0.2",
-		"@typescript-eslint/eslint-plugin": "^7.5.0",
-		"@typescript-eslint/parser": "^7.5.0",
-		"eslint": "^8.57.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-prettier": "^5.1.3",
-		"eslint-plugin-svelte": "^2.35.1",
-		"husky": "^9.0.11",
-		"lint-staged": "^15.2.2",
-		"prettier": "^3.2.5",
-		"prettier-plugin-svelte": "^3.2.2",
-		"svelte": "^4.2.12",
-		"svelte-check": "^3.6.9",
-		"svelte-eslint-parser": "^0.33.1",
-		"typescript": "^5.4.3",
-		"vite": "^5.2.7",
-		"wrangler": "^3.42.0"
+		"@killbasa/eslint-config": "^3.0.0",
+		"@sveltejs/adapter-cloudflare": "^4.7.2",
+		"@sveltejs/kit": "^2.6.1",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"eslint": "^9.13.0",
+		"husky": "^9.1.6",
+		"lint-staged": "^15.2.10",
+		"prettier": "^3.3.3",
+		"prettier-plugin-svelte": "^3.2.7",
+		"svelte": "^5.1.3",
+		"svelte-check": "^4.0.4",
+		"typescript": "^5.6.2",
+		"vite": "^5.4.8"
+	},
+	"resolutions": {
+		"@rollup/rollup-freebsd-arm64": "4.24.0"
 	},
 	"lint-staged": {
-		"*.{mjs,cjs,js,ts}": [
-			"eslint --fix --ext js,ts",
-			"prettier --write --loglevel=warn \"**/*.{mjs,cjs,js,ts}\""
+		"*.{js,ts,svelte}": [
+			"eslint --fix"
 		],
-		"*.svelte": [
-			"eslint --fix --ext svelte",
-			"prettier --write --loglevel=warn \"**/*.svelte\""
-		],
-		"*.{json,yml,yaml,md}": [
-			"prettier --write --loglevel=warn \"**/*.{json,yml,yaml,md}\""
+		"*.{js,ts,json,html}": [
+			"prettier --write --log-level=warn \"**/*.{js,ts,json,html}\""
 		]
 	},
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
+	"packageManager": "pnpm@9.12.2",
+	"volta": {
+		"node": "22.10.0",
+		"pnpm": "9.12.2"
 	},
-	"packageManager": "yarn@4.1.1"
+	"engines": {
+		"node": ">=22.x"
+	}
 }

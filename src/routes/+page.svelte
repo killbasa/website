@@ -6,41 +6,73 @@
 	import Email from '$components/svg/Email.svelte';
 	import GitHub from '$components/svg/GitHub.svelte';
 	import Terminal from '$components/svg/Terminal.svelte';
+	import Twitter from '$components/svg/Twitter.svelte';
+	import Twitch from '$components/svg/Twitch.svelte';
 </script>
 
 <svelte:head>
-	<title>Shane Brown</title>
+	<title>KB</title>
 </svelte:head>
 
 <section>
 	<header>
-		<img alt="Shane's avatar" src={ProfilePicture} />
-		<h1>Shane Brown</h1>
-		<p>Full-stack Developer</p>
+		<img alt="KB's avatar" src={ProfilePicture} />
+		<h1>KB</h1>
+		<p>Software Developer</p>
 	</header>
 	<Card>
-		<Anchor title="GitHub" class="button" href="https://github.com/killbasa" external>
-			<GitHub />
-		</Anchor>
-		<Anchor
-			title="Discord"
-			class="button"
-			href="https://discordapp.com/users/137657554200166401"
-			external
-		>
-			<Discord />
-		</Anchor>
-		<Anchor title="Email" class="button" href="mailto:contact@shaneb.xyz">
-			<Email />
-		</Anchor>
-		<Anchor
-			title="Dotfiles"
-			class="button"
-			href="https://github.com/killbasa/dotfiles"
-			external
-		>
-			<Terminal />
-		</Anchor>
+		<ul>
+			<li>
+				<Anchor title="Email" class="button" href="mailto:contact@shaneb.xyz">
+					<Email />
+				</Anchor>
+			</li>
+			<li>
+				<Anchor
+					title="Discord"
+					class="button"
+					href="https://discordapp.com/users/137657554200166401"
+					external
+				>
+					<Discord />
+				</Anchor>
+			</li>
+			<li>
+				<Anchor
+					title="Twitter"
+					class="button"
+					href="https://twitter.com/Killbasa1"
+					external
+				>
+					<Twitter />
+				</Anchor>
+			</li>
+			<li>
+				<Anchor
+					title="Twitch"
+					class="button"
+					href="https://www.twitch.tv/killbasa102"
+					external
+				>
+					<Twitch />
+				</Anchor>
+			</li>
+			<li>
+				<Anchor title="GitHub" class="button" href="https://github.com/killbasa" external>
+					<GitHub />
+				</Anchor>
+			</li>
+			<li>
+				<Anchor
+					title="Dotfiles"
+					class="button"
+					href="https://github.com/killbasa/dotfiles"
+					external
+				>
+					<Terminal />
+				</Anchor>
+			</li>
+		</ul>
 	</Card>
 </section>
 
@@ -49,9 +81,8 @@
 		display: flex;
 		flex-direction: column;
 		height: 70vh;
-		justify-content: center;
 		align-items: center;
-		gap: 1rem;
+		gap: 2rem;
 	}
 
 	header {
@@ -65,5 +96,12 @@
 		max-width: 128px;
 		max-height: 128px;
 		margin-bottom: 0.5rem;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		list-style: none;
 	}
 </style>
