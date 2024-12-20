@@ -9,6 +9,10 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$components: resolve('./src/lib/components')
+		},
+		output: {
+			preloadStrategy: 'modulepreload',
+			bundleStrategy: 'single'
 		}
 	}
 };

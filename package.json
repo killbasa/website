@@ -33,7 +33,7 @@
 		"svelte": "^5.15.0",
 		"svelte-check": "^4.1.1",
 		"typescript": "5.7.2",
-		"vite": "^6.0.4"
+		"vite": "^6.0.5"
 	},
 	"resolutions": {
 		"@rollup/rollup-freebsd-arm64": "4.24.0"
