@@ -15,7 +15,7 @@
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
-		margin: 4rem;
+		margin-top: 4rem;
 	}
 
 	main {
