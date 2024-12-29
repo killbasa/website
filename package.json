@@ -23,17 +23,17 @@
 	"devDependencies": {
 		"@killbasa/eslint-config": "^3.0.1",
 		"@sveltejs/adapter-static": "^3.0.8",
-		"@sveltejs/kit": "^2.14.1",
+		"@sveltejs/kit": "^2.15.1",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"eslint": "^9.17.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^15.2.11",
+		"lint-staged": "^15.3.0",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.2",
-		"svelte": "^5.15.0",
+		"svelte": "^5.16.0",
 		"svelte-check": "^4.1.1",
 		"typescript": "5.7.2",
-		"vite": "^6.0.5"
+		"vite": "^6.0.6"
 	},
 	"resolutions": {
 		"@rollup/rollup-freebsd-arm64": "4.24.0"
@@ -46,10 +46,13 @@
 			"prettier --write --log-level=warn \"**/*.{js,ts,json,html}\""
 		]
 	},
-	"packageManager": "pnpm@9.15.1",
+	"engines": {
+		"node": "22.x"
+	},
+	"packageManager": "pnpm@9.15.2",
 	"volta": {
 		"node": "22.12.0",
-		"npm": "10.9.0",
-		"pnpm": "9.15.1"
+		"npm": "11.0.0",
+		"pnpm": "9.15.2"
 	}
 }
