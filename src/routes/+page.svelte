@@ -23,7 +23,7 @@
 	<Card>
 		<ul>
 			<li>
-				<Anchor title="Email" class="button" href="mailto:contact@shaneb.xyz">
+				<Anchor title="Email" class="button" href="mailto:contact@killbasa.com">
 					<Email />
 				</Anchor>
 			</li>
