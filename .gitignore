@@ -5,6 +5,6 @@ node_modules/
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# Ignore files for NPM and PNPM
-package-lock.json
+# Ignore files for PNPM and PNPM
+pnpm-lock.yaml
 yarn.lock

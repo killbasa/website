@@ -7,7 +7,7 @@ const config = [
 	...eslintConfig,
 	{
 		name: 'ignore',
-		ignores: ['.svelte-kit/', 'dist/', 'node_modules/']
+		ignores: ['.svelte-kit/', 'build/', 'node_modules/']
 	}
 	// {
 	// 	files: ['**/*.ts', '**/*.svelte'],
