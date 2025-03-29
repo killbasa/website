@@ -8,14 +8,14 @@ const config = [
 	{
 		name: 'ignore',
 		ignores: ['.svelte-kit/', 'build/', 'node_modules/']
+	},
+	{
+		files: ['**/*.svelte'],
+		rules: {
+			'import/no-duplicates': 'off',
+			'import/no-unresolved': ['error', { ignore: ['^\\$app/', '^\\$env/'] }]
+		}
 	}
-	// {
-	// 	files: ['**/*.ts', '**/*.svelte'],
-	// 	rules: {
-	// 		'import/no-duplicates': 'off',
-	// 		'import/no-unresolved': ['error', { ignore: ['^\\$app/'] }],
-	// 	},
-	// },
 ];
 
 export default config;

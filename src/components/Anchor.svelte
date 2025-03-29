@@ -2,7 +2,7 @@
 	import type { Snippet } from 'svelte';
 
 	let {
-		title = undefined,
+		title,
 		href,
 		external = false,
 		children,

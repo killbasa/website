@@ -4,11 +4,13 @@
 	let {
 		title,
 		href,
+		image,
 		external = false,
 		children
 	}: {
 		title: string;
 		href: string;
+		image: string;
 		external?: boolean;
 		children: Snippet;
 	} = $props();
@@ -21,7 +23,10 @@
 		target={external ? '_blank' : undefined}
 	>
 		<div>
-			<h3>{title}</h3>
+			<header>
+				<img src={image} alt={title} />
+				<h2>{title}</h2>
+			</header>
 			<hr />
 			<p>
 				{@render children()}
@@ -48,7 +53,21 @@
 	a {
 		display: flex;
 		flex-direction: column;
-		padding: 1.5rem;
+		padding: 1.2rem;
+	}
+
+	header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	img {
+		border-radius: 100%;
+		max-width: 32px;
+		max-height: 32px;
+		margin-bottom: 0.2rem;
 	}
 
 	hr {
