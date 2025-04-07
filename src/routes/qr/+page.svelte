@@ -22,7 +22,7 @@
 	section {
 		display: flex;
 		align-items: center;
-		min-height: 70vh;
+		height: 70vh;
 	}
 
 	svg {
