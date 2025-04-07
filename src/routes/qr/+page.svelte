@@ -21,7 +21,8 @@
 <style>
 	section {
 		display: flex;
-		height: 70vh;
+		align-items: center;
+		min-height: 70vh;
 	}
 
 	svg {

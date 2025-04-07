@@ -60,7 +60,6 @@
 	section {
 		display: flex;
 		flex-direction: column;
-		height: 70vh;
 		gap: 1rem;
 		max-width: 960px;
 		overflow-y: scroll;

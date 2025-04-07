@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ProfilePicture from '$lib/assets/ProfilePicture.png';
 	import Anchor from '$components/Anchor.svelte';
 	import Card from '$components/Card.svelte';
 	import Discord from '$components/svg/Discord.svelte';
@@ -16,7 +15,7 @@
 
 <section>
 	<header>
-		<img alt="KB's avatar" src={ProfilePicture} />
+		<img alt="KB's avatar" src="/images/ProfilePicture.png" />
 		<h1>KB</h1>
 		<p>Software Developer</p>
 	</header>
@@ -80,7 +79,6 @@
 	section {
 		display: flex;
 		flex-direction: column;
-		height: 70vh;
 		align-items: center;
 		gap: 2rem;
 	}

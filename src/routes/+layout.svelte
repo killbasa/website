@@ -18,15 +18,15 @@
 	div {
 		display: flex;
 		flex-direction: column;
-		overflow: hidden;
+		height: 100vh;
 	}
 
 	main {
 		display: flex;
 		flex-direction: column;
-		margin-top: 7rem;
-		margin-bottom: 3rem;
-		margin-left: 2rem;
-		margin-right: 2rem;
+		padding-top: 7rem;
+		padding-bottom: 3rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
 	}
 </style>
