@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>Projects | Shane Brown</title>
+	<title>Projects</title>
 </svelte:head>
 
 <section>
