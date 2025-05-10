@@ -12,46 +12,67 @@
 <section>
 	<h1>Projects</h1>
 
+	<h2>Personal</h2>
 	<ul>
 		<ProjectItem
-			title={data.srsdvr.name}
-			href={data.srsdvr.url}
-			image={data.srsdvr.owner.avatar_url}
+			title={data.personal.srsdvr.name}
+			href={data.personal.srsdvr.url}
+			image={data.personal.srsdvr.owner.avatar_url}
 			external
 		>
-			{data.srsdvr.description}
+			{data.personal.srsdvr.description}
 		</ProjectItem>
 		<ProjectItem
-			title={data.hive.name}
-			href={data.hive.url}
-			image={data.hive.owner.avatar_url}
+			title={data.personal.hive.name}
+			href={data.personal.hive.url}
+			image={data.personal.hive.owner.avatar_url}
 			external
 		>
-			{data.hive.description}
+			{data.personal.hive.description}
 		</ProjectItem>
 		<ProjectItem
-			title={data.amaneko.name}
-			href={data.amaneko.url}
-			image={data.amaneko.owner.avatar_url}
+			title={data.personal.vt.name}
+			href={data.personal.vt.url}
+			image={data.personal.vt.owner.avatar_url}
 			external
 		>
-			{data.amaneko.description}
+			{data.personal.vt.description}
 		</ProjectItem>
 		<ProjectItem
-			title={data.kbot.name}
-			href={data.kbot.url}
-			image={data.kbot.owner.avatar_url}
+			title={data.personal.amaneko.name}
+			href={data.personal.amaneko.url}
+			image={data.personal.amaneko.owner.avatar_url}
 			external
 		>
-			{data.kbot.description}
+			{data.personal.amaneko.description}
 		</ProjectItem>
 		<ProjectItem
-			title={data.vt.name}
-			href={data.vt.url}
-			image={data.vt.owner.avatar_url}
+			title={data.personal.kbot.name}
+			href={data.personal.kbot.url}
+			image={data.personal.kbot.owner.avatar_url}
 			external
 		>
-			{data.vt.description}
+			{data.personal.kbot.description}
+		</ProjectItem>
+	</ul>
+
+	<h2>Gifts</h2>
+	<ul>
+		<ProjectItem
+			title={data.gifts.triggerphish.name}
+			href={data.gifts.triggerphish.url}
+			image={data.gifts.triggerphish.owner.avatar_url}
+			external
+		>
+			{data.gifts.triggerphish.description}
+		</ProjectItem>
+		<ProjectItem
+			title={data.gifts.monomonet.name}
+			href={data.gifts.monomonet.url}
+			image={data.gifts.monomonet.owner.avatar_url}
+			external
+		>
+			{data.gifts.monomonet.description}
 		</ProjectItem>
 	</ul>
 </section>
