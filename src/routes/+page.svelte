@@ -17,7 +17,7 @@
 	<header>
 		<img alt="KB's avatar" src="/images/ProfilePicture.png" />
 		<h1>KB</h1>
-		<p>Software Developer</p>
+		<p>Software Engineer</p>
 	</header>
 	<Card>
 		<ul>
