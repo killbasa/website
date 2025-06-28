@@ -83,7 +83,6 @@
 		flex-direction: column;
 		gap: 1rem;
 		max-width: 960px;
-		overflow-y: scroll;
 		margin: 0 auto;
 	}
 

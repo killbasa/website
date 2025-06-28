@@ -1,10 +1,11 @@
+import cfg from './svelte.config.js';
 import eslintConfig from '@killbasa/eslint-config/svelte';
 
 /**
  * @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray}
  */
 const config = [
-	...eslintConfig,
+	...eslintConfig(cfg),
 	{
 		name: 'ignore',
 		ignores: ['.svelte-kit/', 'build/', 'node_modules/']

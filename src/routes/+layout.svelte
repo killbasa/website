@@ -18,15 +18,14 @@
 	div {
 		display: flex;
 		flex-direction: column;
-		height: 100vh;
+		min-height: 100vh;
 	}
 
 	main {
 		display: flex;
 		flex-direction: column;
-		padding-top: 7rem;
-		padding-bottom: 3rem;
-		padding-left: 2rem;
-		padding-right: 2rem;
+		flex: 1;
+		justify-content: center;
+		padding: 0 2rem;
 	}
 </style>
