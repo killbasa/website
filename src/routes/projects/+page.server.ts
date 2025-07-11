@@ -3,8 +3,10 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
 	return {
+		organization: {
+			srsdvr: await fetchProject('offkai/srs-dvr')
+		},
 		personal: {
-			srsdvr: await fetchProject('offkai/srs-dvr'),
 			hive: await fetchProject('killbasa/hive'),
 			vt: await fetchProject('killbasa/vt'),
 			amaneko: await fetchProject('killbasa/amaneko'),

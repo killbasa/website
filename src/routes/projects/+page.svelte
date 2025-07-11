@@ -12,16 +12,20 @@
 <section>
 	<h1>Projects</h1>
 
-	<h2>Personal</h2>
+	<h2>Organization</h2>
 	<ul>
 		<ProjectItem
-			title={data.personal.srsdvr.name}
-			href={data.personal.srsdvr.url}
-			image={data.personal.srsdvr.owner.avatar_url}
+			title={data.organization.srsdvr.name}
+			href={data.organization.srsdvr.url}
+			image={data.organization.srsdvr.owner.avatar_url}
 			external
 		>
-			{data.personal.srsdvr.description}
+			{data.organization.srsdvr.description}
 		</ProjectItem>
+	</ul>
+
+	<h2>Personal</h2>
+	<ul>
 		<ProjectItem
 			title={data.personal.hive.name}
 			href={data.personal.hive.url}
