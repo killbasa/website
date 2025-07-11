@@ -43,7 +43,7 @@ export const fetchProject = async (repo: string): Promise<GithubProject> => {
 		description: data.description,
 		url: data.html_url,
 		owner: {
-			avatar_url: data.owner.avatar_url
+			avatar_url: data.owner.avatar_url + '&s=32'
 		}
 	};
 

@@ -7,6 +7,7 @@
 
 <svelte:head>
 	<title>Projects</title>
+	<link rel="preconnect" href="https://github.com" />
 </svelte:head>
 
 <section>
