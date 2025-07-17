@@ -24,7 +24,7 @@
 	>
 		<div>
 			<header>
-				<img src={image} alt={title} />
+				<img src={image} alt={title} height="32" width="32" />
 				<h2>{title}</h2>
 			</header>
 			<hr />

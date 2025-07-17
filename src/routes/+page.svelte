@@ -15,7 +15,7 @@
 
 <section>
 	<header>
-		<img alt="KB's avatar" src="/images/ProfilePicture.png" />
+		<img alt="KB's avatar" src="/images/ProfilePicture.png" height="128" width="128" />
 		<h1>KB</h1>
 		<p>Software Engineer</p>
 	</header>
