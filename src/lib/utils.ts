@@ -10,12 +10,17 @@ export type GithubProject = {
 // For hot-reloads
 const cache = new Map<string, GithubProject>();
 
-export const fetchProject = async (repo: string): Promise<GithubProject> => {
+export const fetchProject = async (
+	repo: string,
+	options: {
+		fetch: typeof fetch;
+	}
+): Promise<GithubProject> => {
 	if (cache.has(repo)) {
 		return cache.get(repo)!;
 	}
 
-	const res = await fetch(`https://api.github.com/repos/${repo}`, {
+	const res = await options.fetch(`https://api.github.com/repos/${repo}`, {
 		headers: {
 			Accept: 'application/vnd.github+json',
 			'X-GitHub-Api-Version': '2022-11-28'
