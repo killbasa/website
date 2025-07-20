@@ -17,11 +17,7 @@
 </script>
 
 <li>
-	<a
-		{href}
-		rel={external ? 'noopener noreferrer' : undefined}
-		target={external ? '_blank' : undefined}
-	>
+	<a {href} target={external ? '_blank' : undefined}>
 		<div>
 			<header>
 				<img src={image} alt={title} height="32" width="32" />
