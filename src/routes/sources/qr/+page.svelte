@@ -1,7 +1,3 @@
-<svelte:head>
-	<title>KB</title>
-</svelte:head>
-
 <section>
 	<svg
 		version="1.1"
@@ -17,16 +13,3 @@
 		</path>
 	</svg>
 </section>
-
-<style>
-	section {
-		display: flex;
-		align-items: center;
-		height: 70vh;
-	}
-
-	svg {
-		margin: auto;
-		background-color: transparent;
-	}
-</style>
