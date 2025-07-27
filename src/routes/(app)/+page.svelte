@@ -17,8 +17,14 @@
 	<header>
 		<img alt="KB's avatar" src="/images/ProfilePicture.png" height="128" width="128" />
 		<h1>KB</h1>
-		<p>Software Engineer</p>
+		<h2>Software Engineer</h2>
 	</header>
+	<div>
+		<p>
+			Hello! I'm just a little guy that writes code, volunteers at conventions, and attempts
+			to DJ.
+		</p>
+	</div>
 	<Card>
 		<ul>
 			<li>
@@ -80,7 +86,11 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 2rem;
+		gap: 1rem;
+		max-width: 32rem;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
 	}
 
 	header {

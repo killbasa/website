@@ -13,73 +13,21 @@
 <section>
 	<h1>Projects</h1>
 
-	<h2>Organization</h2>
-	<ul>
-		<ProjectItem
-			title={data.organization.srsdvr.name}
-			href={data.organization.srsdvr.url}
-			image={data.organization.srsdvr.owner.avatar_url}
-			external
-		>
-			{data.organization.srsdvr.description}
-		</ProjectItem>
-	</ul>
-
-	<h2>Personal</h2>
-	<ul>
-		<ProjectItem
-			title={data.personal.hive.name}
-			href={data.personal.hive.url}
-			image={data.personal.hive.owner.avatar_url}
-			external
-		>
-			{data.personal.hive.description}
-		</ProjectItem>
-		<ProjectItem
-			title={data.personal.vt.name}
-			href={data.personal.vt.url}
-			image={data.personal.vt.owner.avatar_url}
-			external
-		>
-			{data.personal.vt.description}
-		</ProjectItem>
-		<ProjectItem
-			title={data.personal.amaneko.name}
-			href={data.personal.amaneko.url}
-			image={data.personal.amaneko.owner.avatar_url}
-			external
-		>
-			{data.personal.amaneko.description}
-		</ProjectItem>
-		<ProjectItem
-			title={data.personal.kbot.name}
-			href={data.personal.kbot.url}
-			image={data.personal.kbot.owner.avatar_url}
-			external
-		>
-			{data.personal.kbot.description}
-		</ProjectItem>
-	</ul>
-
-	<h2>Gifts</h2>
-	<ul>
-		<ProjectItem
-			title={data.gifts.triggerphish.name}
-			href={data.gifts.triggerphish.url}
-			image={data.gifts.triggerphish.owner.avatar_url}
-			external
-		>
-			{data.gifts.triggerphish.description}
-		</ProjectItem>
-		<ProjectItem
-			title={data.gifts.monomonet.name}
-			href={data.gifts.monomonet.url}
-			image={data.gifts.monomonet.owner.avatar_url}
-			external
-		>
-			{data.gifts.monomonet.description}
-		</ProjectItem>
-	</ul>
+	{#each Object.entries(data) as [category, projects]}
+		<h2>{category}</h2>
+		<ul>
+			{#each Object.values(projects) as project}
+				<ProjectItem
+					title={project.name}
+					href={project.url}
+					image={project.owner.avatar_url}
+					external
+				>
+					{project.description}
+				</ProjectItem>
+			{/each}
+		</ul>
+	{/each}
 </section>
 
 <style>
