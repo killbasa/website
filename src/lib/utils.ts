@@ -48,7 +48,7 @@ export const fetchProject = async (
 		description: data.description,
 		url: data.html_url,
 		owner: {
-			avatar_url: data.owner.avatar_url + '&s=32'
+			avatar_url: data.owner.avatar_url + '&s=64'
 		}
 	};
 

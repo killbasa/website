@@ -5,6 +5,9 @@ import { resolve } from 'path';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
+	compilerOptions: {
+		runes: true
+	},
 	kit: {
 		adapter: adapter(),
 		alias: {
