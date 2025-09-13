@@ -23,19 +23,19 @@
 	"devDependencies": {
 		"@killbasa/eslint-config": "^3.1.5",
 		"@sveltejs/adapter-static": "^3.0.9",
-		"@sveltejs/kit": "^2.31.1",
-		"@sveltejs/vite-plugin-svelte": "^6.1.2",
-		"@types/node": "^24.3.0",
-		"eslint": "9.33.0",
+		"@sveltejs/kit": "^2.39.1",
+		"@sveltejs/vite-plugin-svelte": "^6.2.0",
+		"@types/node": "^24.3.3",
+		"eslint": "9.35.0",
 		"eslint-config-prettier": "^10.1.8",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.1.5",
+		"lint-staged": "^16.1.6",
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
-		"svelte": "^5.38.1",
+		"svelte": "^5.38.10",
 		"svelte-check": "^4.3.1",
 		"typescript": "5.9.2",
-		"vite": "7.1.2"
+		"vite": "7.1.5"
 	},
 	"lint-staged": {
 		"*.{js,ts,svelte}": [
@@ -48,9 +48,9 @@
 	"engines": {
 		"node": "22.x"
 	},
-	"packageManager": "npm@11.4.2",
+	"packageManager": "npm@11.6.0",
 	"volta": {
 		"node": "22.18.0",
-		"npm": "11.4.2"
+		"npm": "11.6.0"
 	}
 }

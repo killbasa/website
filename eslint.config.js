@@ -1,10 +1,8 @@
 import cfg from './svelte.config.js';
 import eslintConfig from '@killbasa/eslint-config/svelte';
+import { defineConfig } from 'eslint/config';
 
-/**
- * @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray}
- */
-const config = [
+const config = defineConfig(
 	...eslintConfig(cfg),
 	{
 		name: 'ignore',
@@ -17,6 +15,6 @@ const config = [
 			'import/no-unresolved': ['error', { ignore: ['^\\$app/', '^\\$env/'] }]
 		}
 	}
-];
+);
 
 export default config;

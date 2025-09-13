@@ -13,7 +13,7 @@
 <section>
 	<h1>Projects</h1>
 
-	{#each Object.entries(data) as [category, projects]}
+	{#each Object.entries(data.projects) as [category, projects]}
 		<h2>{category}</h2>
 		<ul>
 			{#each Object.values(projects) as project}
@@ -36,6 +36,7 @@
 		flex-direction: column;
 		gap: 1rem;
 		max-width: 960px;
+		width: 100%;
 		margin: 0 auto;
 	}
 

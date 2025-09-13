@@ -7,6 +7,9 @@
 			<li>
 				<a href="/projects">Projects</a>
 			</li>
+			<li>
+				<a href="/events">Events</a>
+			</li>
 		</ul>
 	</nav>
 </header>

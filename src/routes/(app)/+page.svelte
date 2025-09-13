@@ -4,7 +4,6 @@
 	import Discord from '$components/svg/Discord.svelte';
 	import Email from '$components/svg/Email.svelte';
 	import GitHub from '$components/svg/GitHub.svelte';
-	import Terminal from '$components/svg/Terminal.svelte';
 	import Twitter from '$components/svg/Twitter.svelte';
 	import Twitch from '$components/svg/Twitch.svelte';
 </script>
@@ -67,16 +66,6 @@
 					<GitHub />
 				</Anchor>
 			</li>
-			<li>
-				<Anchor
-					title="Dotfiles"
-					class="button"
-					href="https://github.com/killbasa/dotfiles"
-					external
-				>
-					<Terminal />
-				</Anchor>
-			</li>
 		</ul>
 	</Card>
 </section>
@@ -88,8 +77,7 @@
 		align-items: center;
 		gap: 1rem;
 		max-width: 32rem;
-		margin-left: auto;
-		margin-right: auto;
+		margin: auto;
 		text-align: center;
 	}
 
