@@ -10,7 +10,6 @@ export const load: LayoutServerLoad = async ({ fetch }) => {
 			Personal: {
 				hive: await fetchProject('killbasa/hive', { fetch }),
 				vt: await fetchProject('killbasa/vt', { fetch }),
-				streamdash: await fetchProject('killbasa/stream-dash', { fetch }),
 				amaneko: await fetchProject('killbasa/amaneko', { fetch }),
 				kbot: await fetchProject('kbot-discord/kbot', { fetch }),
 				oshi: await fetchProject('killbasa/oshi-api', { fetch })

@@ -22,7 +22,7 @@
 			<p>{event.description}</p>
 
 			<div class="event-image">
-				<img src={event.image} alt={event.name} width="500" />
+				<img src={event.image} alt={event.name} />
 
 				<a class="button" href={event.url} target="_blank">
 					<Twitter /> Announcement
@@ -38,6 +38,7 @@
 		flex-direction: column;
 		gap: 1rem;
 		max-width: 960px;
+		width: 100%;
 		margin: 0 auto;
 	}
 
@@ -64,6 +65,7 @@
 
 		.event-image {
 			gap: 0.5rem;
+			max-width: 500px;
 		}
 	}
 </style>
