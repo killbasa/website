@@ -4,17 +4,18 @@
 
 	const time = new SvelteDate();
 
-	let hour = $derived(time.getHours());
-	let minute = $derived(time.getMinutes());
-	let second = $derived(time.getSeconds());
+	const hour = $derived(time.getHours());
+	const minute = $derived(time.getMinutes());
+	const second = $derived(time.getSeconds());
+	const millisecond = $derived(time.getMilliseconds());
 
 	onMount(() => {
 		setInterval(() => {
 			time.setTime(Date.now());
-		}, 1000);
+		}, 10);
 	});
 
-	const fmt = (t: number, pos: number) => t.toString().padStart(2, '0')[pos];
+	const fmt = (t: number, pos: number): string => t.toString().padStart(2, '0')[pos];
 </script>
 
 <section>
@@ -27,6 +28,9 @@
 		<span class="separator">:</span>
 		<span class="digit">{fmt(second, 0)}</span>
 		<span class="digit">{fmt(second, 1)}</span>
+		<span class="separator">:</span>
+		<span class="digit">{fmt(millisecond, 0)}</span>
+		<span class="digit">{fmt(millisecond, 1)}</span>
 	</time>
 </section>
 

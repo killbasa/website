@@ -6,10 +6,16 @@ import { resolve } from 'path';
 const config = {
 	preprocess: vitePreprocess(),
 	compilerOptions: {
-		runes: true
+		runes: true,
+		experimental: {
+			async: true
+		}
 	},
 	kit: {
 		adapter: adapter(),
+		experimental: {
+			remoteFunctions: true
+		},
 		alias: {
 			$components: resolve('./src/components')
 		},

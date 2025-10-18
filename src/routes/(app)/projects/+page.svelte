@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { getProjects } from './projects.remote';
 	import ProjectItem from '$components/ProjectItem.svelte';
-	import type { PageProps } from './$types';
 
-	let { data }: PageProps = $props();
+	const projectMap = await getProjects();
 </script>
 
 <svelte:head>
@@ -13,7 +13,7 @@
 <section>
 	<h1>Projects</h1>
 
-	{#each Object.entries(data.projects) as [category, projects]}
+	{#each Object.entries(projectMap) as [category, projects]}
 		<h2>{category}</h2>
 		<ul>
 			{#each Object.values(projects) as project}

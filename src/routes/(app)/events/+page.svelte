@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { getEvents } from './events.remote';
 	import Twitter from '$components/svg/Twitter.svelte';
-	import type { PageProps } from './$types';
 
-	let { data }: PageProps = $props();
+	const events = await getEvents();
 </script>
 
 <svelte:head>
@@ -12,7 +12,7 @@
 <section>
 	<h1>Events</h1>
 
-	{#each data.events as event}
+	{#each events as event}
 		<div class="event-section">
 			<div>
 				<h2>{event.name}</h2>
