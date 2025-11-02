@@ -5,99 +5,54 @@
 	import Email from '$components/svg/Email.svelte';
 	import GitHub from '$components/svg/GitHub.svelte';
 	import Twitter from '$components/svg/Twitter.svelte';
-	import Twitch from '$components/svg/Twitch.svelte';
 </script>
 
 <svelte:head>
 	<title>KB</title>
 </svelte:head>
 
-<section>
-	<header>
-		<img alt="KB's avatar" src="/images/ProfilePicture.png" height="128" width="128" />
-		<h1>KB</h1>
-		<h2>Software Engineer</h2>
+<section class="flex flex-col items-center gap-4 max-w-md m-auto text-center">
+	<header class="flex flex-col items-center">
+		<img
+			alt="KB's avatar"
+			src="/images/ProfilePicture.png"
+			height="128"
+			width="128"
+			class="rounded-full"
+		/>
+		<h1>Shane / KB</h1>
 	</header>
+
 	<div>
-		<p>
-			Hello! I'm just a little guy that writes code, volunteers at conventions, and attempts
-			to DJ.
-		</p>
+		<p>Hello! I'm Shane, a Software Engineer that occasionally help run VTuber events.</p>
 	</div>
+
 	<Card>
-		<ul>
+		<ul class="flex flex-col gap-4 list-none">
 			<li>
-				<Anchor title="Email" class="button" href="mailto:contact@killbasa.com">
-					<Email />
+				<Anchor title="Email" href="mailto:contact@killbasa.com">
+					<Email height={20} width={20} />
 				</Anchor>
 			</li>
 			<li>
 				<Anchor
 					title="Discord"
-					class="button"
 					href="https://discordapp.com/users/137657554200166401"
 					external
 				>
-					<Discord />
+					<Discord height={20} width={20} />
 				</Anchor>
 			</li>
 			<li>
-				<Anchor
-					title="Twitter"
-					class="button"
-					href="https://twitter.com/Killbasa1"
-					external
-				>
-					<Twitter />
+				<Anchor title="Twitter" href="https://twitter.com/Killbasa1" external>
+					<Twitter height={20} width={20} />
 				</Anchor>
 			</li>
 			<li>
-				<Anchor
-					title="Twitch"
-					class="button"
-					href="https://www.twitch.tv/killbasa102"
-					external
-				>
-					<Twitch />
-				</Anchor>
-			</li>
-			<li>
-				<Anchor title="GitHub" class="button" href="https://github.com/killbasa" external>
-					<GitHub />
+				<Anchor title="GitHub" href="https://github.com/killbasa" external>
+					<GitHub height={20} width={20} />
 				</Anchor>
 			</li>
 		</ul>
 	</Card>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
-		max-width: 32rem;
-		margin: auto;
-		text-align: center;
-	}
-
-	header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	img {
-		border-radius: 100%;
-		max-width: 128px;
-		max-height: 128px;
-		margin-bottom: 0.5rem;
-	}
-
-	ul {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		list-style: none;
-	}
-</style>

@@ -1,71 +1,30 @@
 <script lang="ts">
 	import { getEvents } from './events.remote';
-	import Twitter from '$components/svg/Twitter.svelte';
 
 	const events = await getEvents();
 </script>
 
 <svelte:head>
-	<title>Events</title>
-</svelte:head>
-
-<section>
-	<h1>Events</h1>
+	<title>Events | KB</title>
 
 	{#each events as event}
-		<div class="event-section">
-			<div>
-				<h2>{event.name}</h2>
-				<span>{event.date} @ {event.location}</span>
-			</div>
-
-			<p>{event.description}</p>
-
-			<div class="event-image">
-				<img src={event.image} alt={event.name} />
-
-				<a class="button" href={event.url} target="_blank">
-					<Twitter /> Announcement
-				</a>
-			</div>
-		</div>
+		<link rel="preload" as="image" href={event.image} />
 	{/each}
+</svelte:head>
+
+<section class="flex flex-col gap-4 mx-auto max-w-4xl">
+	<ul class="grid grid-cols-1 gap-4 list-none lg:grid-cols-2">
+		{#each events as event}
+			<li class="flex flex-col gap-2">
+				<div class="flex flex-col">
+					<h2 class="font-bold underline">{event.name} - {event.role.title}</h2>
+					<span>{event.date} @ {event.location}</span>
+				</div>
+
+				<p>{@html event.description}</p>
+
+				<img src={event.image} alt={event.name} class="max-w-sm mx-auto" />
+			</li>
+		{/each}
+	</ul>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		max-width: 960px;
-		width: 100%;
-		margin: 0 auto;
-	}
-
-	.event-section {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-
-		div {
-			display: flex;
-			flex-direction: column;
-		}
-
-		h2 {
-			font-weight: bold;
-		}
-
-		a {
-			display: flex;
-			align-items: center;
-			gap: 0.4rem;
-			width: fit-content;
-		}
-
-		.event-image {
-			gap: 0.5rem;
-			max-width: 500px;
-		}
-	}
-</style>

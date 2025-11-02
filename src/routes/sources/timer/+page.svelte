@@ -18,7 +18,7 @@
 	const fmt = (t: number, pos: number): string => t.toString().padStart(2, '0')[pos];
 </script>
 
-<section>
+<section class="flex items-center justify-center h-screen">
 	<time>
 		<span class="digit">{fmt(hour, 0)}</span>
 		<span class="digit">{fmt(hour, 1)}</span>
@@ -34,13 +34,8 @@
 	</time>
 </section>
 
-<style>
-	section {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-	}
+<style lang="postcss">
+	@reference "../../../app.css";
 
 	time {
 		font-size: 164px;
@@ -49,10 +44,10 @@
 	}
 
 	.digit {
-		margin-left: var(--digit-width);
+		margin-left: -50px;
 	}
 
 	.separator {
-		margin-left: var(--digit-width);
+		margin-left: -50px;
 	}
 </style>

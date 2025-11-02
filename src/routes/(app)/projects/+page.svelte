@@ -3,19 +3,28 @@
 	import ProjectItem from '$components/ProjectItem.svelte';
 
 	const projectMap = await getProjects();
+
+	const uniqueAvatars = new Set<string>();
+
+	for (const projects of Object.values(projectMap)) {
+		for (const project of Object.values(projects)) {
+			uniqueAvatars.add(project.owner.avatar_url);
+		}
+	}
 </script>
 
 <svelte:head>
-	<title>Projects</title>
-	<link rel="preconnect" href="https://github.com" />
+	<title>Projects | KB</title>
+
+	{#each uniqueAvatars as avatar}
+		<link rel="preload" as="image" href={avatar} />
+	{/each}
 </svelte:head>
 
-<section>
-	<h1>Projects</h1>
-
+<section class="flex flex-col gap-4 mx-auto max-w-4xl">
 	{#each Object.entries(projectMap) as [category, projects]}
 		<h2>{category}</h2>
-		<ul>
+		<ul class="grid grid-cols-1 gap-4 list-none lg:grid-cols-3 md:grid-cols-2">
 			{#each Object.values(projects) as project}
 				<ProjectItem
 					title={project.name}
@@ -29,33 +38,3 @@
 		</ul>
 	{/each}
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		max-width: 960px;
-		width: 100%;
-		margin: 0 auto;
-	}
-
-	ul {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		list-style: none;
-		gap: 1rem;
-	}
-
-	@media only screen and (max-width: 960px) {
-		ul {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
-
-	@media only screen and (max-width: 720px) {
-		ul {
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-		}
-	}
-</style>

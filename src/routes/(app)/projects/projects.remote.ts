@@ -1,4 +1,4 @@
-import { fetchProject } from '$lib/utils';
+import { fetchProject } from '$lib/github';
 import { getRequestEvent, prerender } from '$app/server';
 
 export const getProjects = prerender(async () => {

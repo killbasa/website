@@ -2,26 +2,20 @@
 	import type { Snippet } from 'svelte';
 
 	let {
+		title,
 		children
 	}: {
+		title?: string;
 		children: Snippet;
 	} = $props();
 </script>
 
-<div>
-	{@render children()}
-</div>
+<div class="flex flex-col gap-2 p-4 w-fit rounded-lg shadow-md bg-alt text-start">
+	{#if title}
+		<h2 class="text-lg">{title}</h2>
+	{/if}
 
-<style>
-	div {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		justify-content: center;
-		padding: 1rem;
-		width: fit-content;
-		border-radius: var(--border-radius);
-		box-shadow: var(--shadow);
-		background-color: var(--background-alt);
-	}
-</style>
+	<div class="flex flex-wrap gap-2 justify-center">
+		{@render children()}
+	</div>
+</div>

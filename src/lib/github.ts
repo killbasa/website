@@ -16,8 +16,9 @@ export const fetchProject = async (
 		fetch: typeof fetch;
 	}
 ): Promise<GithubProject> => {
-	if (cache.has(repo)) {
-		return cache.get(repo)!;
+	const cached = cache.get(repo);
+	if (cached) {
+		return cached;
 	}
 
 	const res = await options.fetch(`https://api.github.com/repos/${repo}`, {

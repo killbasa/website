@@ -21,7 +21,7 @@
 		<div>
 			<header>
 				<img src={image} alt={title} height="32" width="32" />
-				<h2>{title}</h2>
+				<h3>{title}</h3>
 			</header>
 			<hr />
 			<p>
@@ -36,7 +36,7 @@
 		position: relative;
 		top: 0px;
 		background: var(--background-alt);
-		border-radius: var(--border-radius);
+		border-radius: 8px;
 		overflow: hidden;
 		transition: all 0.3s ease-out;
 	}

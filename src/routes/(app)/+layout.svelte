@@ -5,28 +5,10 @@
 	let { children }: LayoutProps = $props();
 </script>
 
-<div>
+<div class="flex flex-col min-h-screen bg-primary text-color-text">
 	<Header />
 
-	<main>
+	<main class="flex flex-col flex-1 p-8 mt-12">
 		{@render children()}
 	</main>
 </div>
-
-<style>
-	div {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		background-color: var(--background);
-		color: var(--color-text);
-	}
-
-	main {
-		display: flex;
-		flex-direction: column;
-		flex: 1;
-		padding: 2rem;
-		margin-top: 3rem;
-	}
-</style>
