@@ -1,6 +1,8 @@
 .DS_Store/
 .git/
 .svelte-kit/
+.yarn/
+.wrangler/
 build/
 node_modules/
 static/

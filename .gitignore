@@ -1,4 +1,7 @@
 .svelte-kit/
+.wrangler/
+.yarn/cache/
+.yarn/install-state.gz
 build/
 node_modules/
 .env*
@@ -7,4 +10,4 @@ vite.config.ts.timestamp-*
 
 # Ignore files for PNPM and PNPM
 pnpm-lock.yaml
-yarn.lock
+package-lock.json

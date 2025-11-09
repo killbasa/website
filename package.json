@@ -21,23 +21,24 @@
 		"ci": "npm run check && npm run lint && npm run build"
 	},
 	"devDependencies": {
-		"@killbasa/eslint-config": "^3.1.5",
-		"@sveltejs/adapter-static": "^3.0.10",
+		"@killbasa/eslint-config": "^3.1.6",
+		"@sveltejs/adapter-cloudflare": "^7.2.4",
 		"@sveltejs/kit": "^2.48.4",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
-		"@tailwindcss/vite": "^4.1.16",
-		"@types/node": "^24.9.2",
-		"eslint": "9.39.0",
+		"@tailwindcss/vite": "^4.1.17",
+		"@types/node": "^24.10.0",
+		"eslint": "9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.6",
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
-		"svelte": "^5.43.2",
+		"svelte": "^5.43.5",
 		"svelte-check": "^4.3.3",
-		"tailwindcss": "^4.1.16",
+		"tailwindcss": "^4.1.17",
 		"typescript": "5.9.3",
-		"vite": "7.1.12"
+		"vite": "7.2.2",
+		"wrangler": "^4.46.0"
 	},
 	"lint-staged": {
 		"*.{js,ts,svelte}": [
@@ -50,9 +51,8 @@
 	"engines": {
 		"node": "22.x"
 	},
-	"packageManager": "npm@11.6.0",
+	"packageManager": "yarn@4.11.0",
 	"volta": {
-		"node": "22.20.0",
-		"npm": "11.6.2"
+		"node": "22.21.1"
 	}
 }
