@@ -1,4 +1,4 @@
-name = "website"
+name = "portfolio"
 main = ".svelte-kit/cloudflare/_worker.js"
 preview_urls = false
 workers_dev = false
