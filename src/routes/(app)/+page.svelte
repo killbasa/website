@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Anchor from '$components/Anchor.svelte';
 	import Card from '$components/Card.svelte';
 	import Discord from '$components/svg/Discord.svelte';
 	import Email from '$components/svg/Email.svelte';
@@ -29,29 +28,34 @@
 
 	<Card>
 		<ul class="flex flex-col gap-4 list-none">
-			<li>
-				<Anchor title="Email" href="mailto:contact@killbasa.com">
-					<Email height={20} width={20} />
-				</Anchor>
+			<li class="flex items-center gap-1">
+				<Email height={20} width={20} />
+				<span>
+					Email:
+					<a class="anchor" href="mailto:contact@killbasa.com" target="_blank"
+						>contact@killbasa.com</a
+					>
+				</span>
 			</li>
-			<li>
-				<Anchor
-					title="Discord"
-					href="https://discordapp.com/users/137657554200166401"
-					external
+			<li class="flex items-center gap-1">
+				<Discord height={20} width={20} />
+				<span>Discord: killbasa</span>
+			</li>
+			<li class="flex items-center gap-1">
+				<Twitter height={20} width={20} />
+				<span
+					>Twitter: <a class="anchor" href="https://twitter.com/Killbasa1" target="_blank"
+						>@killbasa1</a
+					></span
 				>
-					<Discord height={20} width={20} />
-				</Anchor>
 			</li>
-			<li>
-				<Anchor title="Twitter" href="https://twitter.com/Killbasa1" external>
-					<Twitter height={20} width={20} />
-				</Anchor>
-			</li>
-			<li>
-				<Anchor title="GitHub" href="https://github.com/killbasa" external>
-					<GitHub height={20} width={20} />
-				</Anchor>
+			<li class="flex items-center gap-1">
+				<GitHub height={20} width={20} />
+				<span
+					>GitHub: <a class="anchor" href="https://github.com/killbasa" target="_blank"
+						>killbasa</a
+					></span
+				>
 			</li>
 		</ul>
 	</Card>

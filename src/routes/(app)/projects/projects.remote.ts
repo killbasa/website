@@ -12,9 +12,9 @@ export const getProjects = prerender(async () => {
 		Personal: {
 			hive: await fetchProject('killbasa/hive', { fetch }),
 			vt: await fetchProject('killbasa/vt', { fetch }),
+			oshi: await fetchProject('killbasa/oshi-api', { fetch }),
 			amaneko: await fetchProject('killbasa/amaneko', { fetch }),
-			kbot: await fetchProject('kbot-discord/kbot', { fetch }),
-			oshi: await fetchProject('killbasa/oshi-api', { fetch })
+			kbot: await fetchProject('kbot-discord/kbot', { fetch })
 		},
 		Gifts: {
 			triggerphish: await fetchProject('killbasa/phishu', { fetch }),
