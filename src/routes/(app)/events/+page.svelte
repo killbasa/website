@@ -23,7 +23,7 @@
 
 				<p>{@html event.description}</p>
 
-				<img src={event.image} alt={event.name} class="max-w-sm mx-auto" />
+				<img src={event.image} alt={event.name} class="w-full max-w-sm mx-auto" />
 			</li>
 		{/each}
 	</ul>
