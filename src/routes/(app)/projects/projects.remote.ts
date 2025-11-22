@@ -5,7 +5,9 @@ export const getProjects = prerender(async () => {
 	const event = getRequestEvent();
 	const { fetch } = event;
 
-	return {
+	const images = new Set<string>();
+
+	const entries = {
 		Organization: {
 			srsdvr: await fetchProject('offkai/srs-dvr', { fetch })
 		},
@@ -20,5 +22,16 @@ export const getProjects = prerender(async () => {
 			triggerphish: await fetchProject('killbasa/phishu', { fetch }),
 			monomonet: await fetchProject('killbasa/monomonet', { fetch })
 		}
+	};
+
+	for (const projects of Object.values(entries)) {
+		for (const project of Object.values(projects)) {
+			images.add(project.owner.avatar_url);
+		}
+	}
+
+	return {
+		entries,
+		images: Array.from(images)
 	};
 });

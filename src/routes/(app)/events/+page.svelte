@@ -6,10 +6,6 @@
 
 <svelte:head>
 	<title>Events | KB</title>
-
-	{#each events as event}
-		<link rel="preload" as="image" href={event.image} />
-	{/each}
 </svelte:head>
 
 <section class="flex flex-col gap-4 mx-auto max-w-4xl">
