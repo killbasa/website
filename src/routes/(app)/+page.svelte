@@ -14,7 +14,7 @@
 	<header class="flex flex-col items-center">
 		<img
 			alt="KB's avatar"
-			src="/images/ProfilePicture.png"
+			src="/images/ProfilePicture.webp"
 			height="128"
 			width="128"
 			class="rounded-full"

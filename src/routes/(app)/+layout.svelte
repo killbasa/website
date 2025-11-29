@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<link rel="preload" as="image" href="/images/ProfilePicture.png" />
+	<link rel="preload" fetchpriority="high" as="image" href="/images/ProfilePicture.webp" />
 
 	{#each events as { image }}
 		<link rel="preload" as="image" href={image} />

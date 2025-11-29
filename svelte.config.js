@@ -21,7 +21,7 @@ const config = {
 		},
 		output: {
 			preloadStrategy: 'modulepreload',
-			bundleStrategy: 'single'
+			bundleStrategy: 'inline'
 		}
 	}
 };
