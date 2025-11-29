@@ -22,6 +22,19 @@ const config = {
 		output: {
 			preloadStrategy: 'modulepreload',
 			bundleStrategy: 'inline'
+		},
+		csp: {
+			directives: {
+				'default-src': ['none'],
+				'img-src': [
+					'self',
+					'https://imagedelivery.net',
+					'https://avatars.githubusercontent.com'
+				],
+				'script-src': ['self'],
+				'font-src': ['self'],
+				'connect-src': ['self']
+			}
 		}
 	}
 };
