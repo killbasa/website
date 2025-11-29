@@ -25,12 +25,12 @@ const config = {
 		},
 		csp: {
 			directives: {
-				'default-src': ['none'],
 				'img-src': [
 					'self',
 					'https://imagedelivery.net',
 					'https://avatars.githubusercontent.com'
 				],
+				'style-src': ['self'],
 				'script-src': ['self'],
 				'font-src': ['self'],
 				'connect-src': ['self']
