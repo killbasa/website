@@ -23,7 +23,7 @@
 	</header>
 
 	<div>
-		<p>Hello! I'm Shane, a Software Engineer that occasionally help run VTuber events.</p>
+		<p>Hello! I'm Shane, a Software Engineer that occasionally helps run VTuber events.</p>
 	</div>
 
 	<Card>
