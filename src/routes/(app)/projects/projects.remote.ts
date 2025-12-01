@@ -1,4 +1,5 @@
 import { fetchProject } from '$lib/github';
+import type { GithubProject } from '$lib/github';
 import { getRequestEvent, prerender } from '$app/server';
 
 export const getProjects = prerender(async () => {
@@ -7,20 +8,20 @@ export const getProjects = prerender(async () => {
 
 	const images = new Set<string>();
 
-	const entries = {
+	const entries: Record<string, Record<string, GithubProject>> = {
 		Organization: {
 			srsdvr: await fetchProject('offkai/srs-dvr', { fetch })
+		},
+		Gifts: {
+			triggerphish: await fetchProject('killbasa/phishu', { fetch }),
+			monomonet: await fetchProject('killbasa/monomonet', { fetch })
 		},
 		Personal: {
 			hive: await fetchProject('killbasa/hive', { fetch }),
 			vt: await fetchProject('killbasa/vt', { fetch }),
 			oshi: await fetchProject('killbasa/oshi-api', { fetch }),
 			amaneko: await fetchProject('killbasa/amaneko', { fetch }),
-			kbot: await fetchProject('kbot-discord/kbot', { fetch })
-		},
-		Gifts: {
-			triggerphish: await fetchProject('killbasa/phishu', { fetch }),
-			monomonet: await fetchProject('killbasa/monomonet', { fetch })
+			dotfiles: await fetchProject('killbasa/dotfiles', { fetch })
 		}
 	};
 

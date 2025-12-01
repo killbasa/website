@@ -24,9 +24,9 @@
 			{#each Object.values(projects) as project}
 				<ProjectItem
 					title={project.name}
-					href={project.url}
+					href={project.homepage}
+					projectHref={project.url}
 					image={project.owner.avatar_url}
-					external
 				>
 					{project.description}
 				</ProjectItem>

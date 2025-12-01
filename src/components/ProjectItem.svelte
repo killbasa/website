@@ -1,34 +1,46 @@
 <script lang="ts">
+	import ExternalLink from './svg/ExternalLink.svelte';
+	import GitHub from './svg/GitHub.svelte';
 	import type { Snippet } from 'svelte';
 
 	let {
 		title,
 		href,
+		projectHref,
 		image,
-		external = false,
 		children
 	}: {
 		title: string;
-		href: string;
+		href?: string;
+		projectHref: string;
 		image: string;
-		external?: boolean;
 		children: Snippet;
 	} = $props();
 </script>
 
 <li>
-	<a {href} target={external ? '_blank' : undefined}>
-		<div>
-			<header>
+	<div>
+		<header>
+			<div>
 				<img src={image} alt={title} height="32" width="32" />
 				<h3>{title}</h3>
-			</header>
-			<hr />
-			<p>
-				{@render children()}
-			</p>
-		</div>
-	</a>
+			</div>
+			<div>
+				{#if href}
+					<a class="anchor" {href} target="_blank">
+						<ExternalLink />
+					</a>
+				{/if}
+				<a class="anchor" href={projectHref} target="_blank">
+					<GitHub />
+				</a>
+			</div>
+		</header>
+		<hr />
+		<p>
+			{@render children()}
+		</p>
+	</div>
 </li>
 
 <style>
@@ -38,21 +50,26 @@
 		background: var(--background-alt);
 		border-radius: 8px;
 		overflow: hidden;
-		transition: all 0.3s ease-out;
 	}
 
-	li:hover {
-		top: -6px;
-		box-shadow: var(--shadow-lg);
+	li > div {
+		padding: 1.2rem;
 	}
 
 	a {
 		display: flex;
 		flex-direction: column;
-		padding: 1.2rem;
 	}
 
 	header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	header > div {
 		display: flex;
 		flex-direction: row;
 		align-items: center;

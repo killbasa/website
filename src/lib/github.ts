@@ -2,6 +2,7 @@ export type GithubProject = {
 	name: string;
 	description: string;
 	url: string;
+	homepage?: string;
 	owner: {
 		avatar_url: string;
 	};
@@ -32,7 +33,7 @@ export const fetchProject = async (
 	const resetDate = new Date(resetTimestamp * 1000);
 	const secondsUntilReset = Math.ceil((resetDate.getTime() - Date.now()) / 1000);
 
-	console.log({
+	console.log('ratelimit:', {
 		count: res.headers.get('X-RateLimit-Limit'),
 		remaining: res.headers.get('X-RateLimit-Remaining'),
 		reset: `${secondsUntilReset}s`
@@ -48,6 +49,7 @@ export const fetchProject = async (
 		name: data.name,
 		description: data.description,
 		url: data.html_url,
+		homepage: data.homepage,
 		owner: {
 			avatar_url: data.owner.avatar_url + '&s=64'
 		}
