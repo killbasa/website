@@ -9,15 +9,35 @@
 </svelte:head>
 
 <section class="flex flex-col gap-4 mx-auto max-w-4xl">
-	<ul class="grid grid-cols-1 gap-4 list-none lg:grid-cols-2">
+	<ul class="flex flex-col gap-8 list-none">
 		{#each events as event}
-			<li class="flex flex-col gap-2">
+			<li class="flex flex-col gap-3">
 				<div class="flex flex-col">
 					<h2 class="font-bold underline">{event.name} - {event.role.title}</h2>
-					<span>{event.date} @ {event.location}</span>
+					<h3>{event.date} @ {event.location}</h3>
 				</div>
 
-				<p>{@html event.description}</p>
+				{#if event.description}
+					<p>{@html event.description}</p>
+				{/if}
+
+				<div class="flex gap-2">
+					{#if event.links.length > 0}
+						<span>Links:</span>
+						<ul class="list-none gap-2 flex">
+							{#each event.links as link}
+								<li>
+									<a
+										href={link.url}
+										class="anchor"
+										target="_blank"
+										rel="noopener noreferrer">{link.label}</a
+									>
+								</li>
+							{/each}
+						</ul>
+					{/if}
+				</div>
 
 				<img src={event.image} alt={event.name} class="w-full max-w-sm mx-auto" />
 			</li>

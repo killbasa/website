@@ -1,3 +1,7 @@
+import { existsSync } from 'node:fs';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { join, resolve } from 'node:path';
+
 export type GithubProject = {
 	name: string;
 	description: string;
@@ -9,7 +13,25 @@ export type GithubProject = {
 };
 
 // For hot-reloads
-const cache = new Map<string, GithubProject>();
+const cache = {
+	dir: resolve('node_modules/.cache/postfolio'),
+	fmtKey: (repo: string) => repo.replace('/', '_') + '.json',
+	async get(key: string): Promise<GithubProject | null> {
+		const path = join(this.dir, this.fmtKey(key));
+		if (!existsSync(path)) return null;
+
+		const file = await readFile(path, 'utf-8');
+		return JSON.parse(file);
+	},
+	async set(key: string, value: GithubProject) {
+		await mkdir(this.dir, { recursive: true });
+		await writeFile(join(this.dir, this.fmtKey(key)), JSON.stringify(value), 'utf-8');
+	},
+	has(key: string): boolean {
+		const path = join(this.dir, this.fmtKey(key));
+		return existsSync(path);
+	}
+};
 
 export const fetchProject = async (
 	repo: string,
@@ -17,9 +39,11 @@ export const fetchProject = async (
 		fetch: typeof fetch;
 	}
 ): Promise<GithubProject> => {
-	const cached = cache.get(repo);
-	if (cached) {
-		return cached;
+	if (!process.env.CI) {
+		const cached = await cache.get(repo);
+		if (cached) {
+			return cached;
+		}
 	}
 
 	const res = await options.fetch(`https://api.github.com/repos/${repo}`, {
@@ -55,8 +79,9 @@ export const fetchProject = async (
 		}
 	};
 
-	if (!cache.has(repo)) {
-		cache.set(repo, project);
+	if (!process.env.CI && !cache.has(repo)) {
+		console.log(`caching repository "${repo}" to disk`);
+		await cache.set(repo, project);
 	}
 
 	if (!data.name || !data.description || !data.html_url) {
