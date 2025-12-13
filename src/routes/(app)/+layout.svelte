@@ -25,7 +25,7 @@
 <div class="flex flex-col min-h-screen bg-primary text-color-text">
 	<Header />
 
-	<main class="flex flex-col flex-1 p-8 mt-12">
+	<main class="flex flex-col flex-1 p-2 lg:p-8 mt-12">
 		{@render children()}
 	</main>
 </div>

@@ -2,7 +2,8 @@
 	const links = [
 		{ href: '/', label: 'Home' },
 		{ href: '/events', label: 'Events' },
-		{ href: '/projects', label: 'Projects' }
+		{ href: '/projects', label: 'Projects' },
+		{ href: '/oshi', label: 'Oshi' }
 	];
 </script>
 

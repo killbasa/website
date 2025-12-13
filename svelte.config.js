@@ -17,7 +17,8 @@ const config = {
 			remoteFunctions: true
 		},
 		alias: {
-			$components: resolve('./src/components')
+			$components: resolve('./src/components'),
+			$src: resolve('./src')
 		},
 		output: {
 			preloadStrategy: 'modulepreload',
