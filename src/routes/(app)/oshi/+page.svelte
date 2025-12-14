@@ -14,7 +14,7 @@
 	const HelpCommand: Command['result'] = [
 		'available commands:',
 		'  curl oshi.killbasa.com - Fetch stream data about my oshi',
-		'  curl oshi.killbasa.com/list - Fetch a list of my shi',
+		'  curl oshi.killbasa.com/list - Fetch a list of my oshi',
 		'  help - Display this help message',
 		'  clear - Clear the terminal screen'
 	];
