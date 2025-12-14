@@ -10,6 +10,7 @@
 
 	import type { EventHandler } from 'svelte/elements';
 
+	const SpanRegex = /<span style="(color: rgb\(\d+, \d+, \d+\);)">(https?:\/\/[^\s]+)<\/span>/g;
 	const HelpCommand: Command['result'] = [
 		'available commands:',
 		'  curl oshi.killbasa.com - Fetch stream data about my oshi',
@@ -31,7 +32,7 @@
 		if (loading) return;
 
 		const form = event.currentTarget;
-		const command = new FormData(form).get('command')?.toString() ?? '';
+		const command = new FormData(form).get('command')?.toString().trim() ?? '';
 
 		if (command === 'curl oshi.killbasa.com') {
 			loading = true;
@@ -66,13 +67,13 @@
 			});
 		} else if (command === 'clear') {
 			lines.splice(0, lines.length);
-		} else if (command.trim() === '') {
+		} else if (command === '') {
 			lines.push({ cmd: command, result: [] });
 		} else if (command.includes('rm -rf /')) {
 			lines.push({
 				cmd: command,
 				result: [
-					'<a style="color: lightblue; text-decoration: underline;" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>'
+					'<a style="color: rgb(102, 204, 255); text-decoration: underline;" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>'
 				]
 			});
 		} else {
@@ -112,7 +113,11 @@
 				// eslint-disable-next-line no-control-regex
 				.replace(/\x1b\[38;5;129m/g, '<span style="color: rgb(153, 0, 255);">') // bright purple
 				// eslint-disable-next-line no-control-regex
-				.replace(/\x1b\[0m/g, '</span>') // reset
+				.replace(/\x1b\[0m/g, '</span>')
+				.replace(
+					SpanRegex,
+					'<a style="$1 text-decoration: underline;" href="$2" target="_blank">$2</a>'
+				)
 		);
 	}
 </script>
