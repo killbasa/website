@@ -13,6 +13,7 @@
 	const HelpCommand: Command['result'] = [
 		'available commands:',
 		'  curl oshi.killbasa.com - Fetch stream data about my oshi',
+		'  curl oshi.killbasa.com/list - Fetch a list of my shi',
 		'  help - Display this help message',
 		'  clear - Clear the terminal screen'
 	];
@@ -38,13 +39,26 @@
 			const response = await fetch('https://oshi.killbasa.com', {
 				method: 'GET',
 				headers: {
-					Accept: 'application/json'
+					Accept: 'text/plain'
 				}
 			});
 			const data = await response.text();
 
 			loading = false;
-			lines.push({ cmd: command, result: data.split('\n') });
+			lines.push({ cmd: command, result: data.split('\n').map(ansiToHtml) });
+		} else if (command === 'curl oshi.killbasa.com/list') {
+			loading = true;
+
+			const response = await fetch('https://oshi.killbasa.com/list', {
+				method: 'GET',
+				headers: {
+					Accept: 'text/plain'
+				}
+			});
+			const data = await response.text();
+
+			loading = false;
+			lines.push({ cmd: command, result: data.split('\n').map(ansiToHtml) });
 		} else if (command === 'help') {
 			lines.push({
 				cmd: command,
@@ -69,13 +83,38 @@
 			lines.shift();
 		}
 
-		history.push(command);
+		if (command.trim() !== '') {
+			history.push(command);
+		}
+
 		cmdCursor = -1;
 		form.reset();
 
 		await tick(); // wait for DOM update
 		input.scrollIntoView(); // scroll to bottom
 	};
+
+	function ansiToHtml(text: string): string {
+		if (text === '') return '&nbsp;';
+
+		// parse ansi color codes to html spans
+		// https://talyian.github.io/ansicolors/
+		return (
+			text
+				// eslint-disable-next-line no-control-regex
+				.replace(/\x1b\[38;5;117m/g, '<span style="color: rgb(102, 204, 255);">') // light blue
+				// eslint-disable-next-line no-control-regex
+				.replace(/\x1b\[38;5;120m/g, '<span style="color: rgb(102, 255, 102);">') // green
+				// eslint-disable-next-line no-control-regex
+				.replace(/\x1b\[38;5;196m/g, '<span style="color: rgb(255, 0, 0);">') // bright red
+				// eslint-disable-next-line no-control-regex
+				.replace(/\x1b\[38;5;226m/g, '<span style="color: rgb(255, 255, 0);">') // bright yellow
+				// eslint-disable-next-line no-control-regex
+				.replace(/\x1b\[38;5;129m/g, '<span style="color: rgb(153, 0, 255);">') // bright purple
+				// eslint-disable-next-line no-control-regex
+				.replace(/\x1b\[0m/g, '</span>') // reset
+		);
+	}
 </script>
 
 <svelte:head>
@@ -85,9 +124,9 @@
 <svelte:window
 	onmouseup={() => {
 		if (document.activeElement !== input) {
-			const selected = window.getSelection();
-			if (selected) {
-				navigator.clipboard.writeText(selected.toString());
+			const selected = window.getSelection()?.toString();
+			if (selected && selected.length > 0) {
+				navigator.clipboard.writeText(selected);
 			}
 
 			input.focus();
@@ -121,6 +160,10 @@
 			}
 
 			event.preventDefault();
+		} else if (event.ctrlKey && event.code === 'KeyC') {
+			input.value = '';
+			cmdCursor = -1;
+			event.preventDefault();
 		}
 	}}
 />
@@ -133,7 +176,7 @@
 		{#each lines as cmd, i (i)}
 			<div class="flex gap-2"><span class="text-green-400">{prefix}</span> {cmd.cmd}</div>
 			{#each cmd.result as line}
-				<span>{@html line}</span>
+				<span class="whitespace-pre">{@html line}</span>
 			{/each}
 		{/each}
 
