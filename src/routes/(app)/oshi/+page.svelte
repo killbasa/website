@@ -185,7 +185,7 @@
 			{/each}
 		{/each}
 
-		<form onsubmit={handleSubmit} class="flex items-center rounded font-mono h-6">
+		<form onsubmit={handleSubmit} class="flex items-center rounded font-mono h-5">
 			<span class="text-green-400 whitespace-nowrap">{prefix}</span>
 			<input
 				name="command"
