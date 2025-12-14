@@ -176,7 +176,7 @@
 <section>
 	<div
 		id="terminal"
-		class="h-[calc(100vh-4rem)] lg:h-[calc(100vh-7rem)] bg-black flex flex-col text-gray-100 font-mono p-2 overflow-y-auto cursor-default border border-gray-700 rounded"
+		class="h-[calc(100vh-4rem)] lg:h-[calc(100vh-7rem)] bg-black flex flex-col text-gray-100 font-mono p-2 overflow-y-auto cursor-default border border-gray-700 rounded leading-5"
 	>
 		{#each lines as cmd, i (i)}
 			<div class="flex gap-2"><span class="text-green-400">{prefix}</span> {cmd.cmd}</div>
