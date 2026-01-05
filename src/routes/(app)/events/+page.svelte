@@ -8,7 +8,7 @@
 	<title>Events | KB</title>
 </svelte:head>
 
-<section class="flex flex-col gap-4 mx-auto max-w-4xl">
+<section class="flex flex-col gap-4 mx-auto max-w-4xl py-4">
 	<ul class="flex flex-col gap-8 list-none">
 		{#each events as event}
 			<li class="flex flex-col gap-3">

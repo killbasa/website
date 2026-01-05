@@ -17,7 +17,7 @@
 	<title>Projects | KB</title>
 </svelte:head>
 
-<section class="flex flex-col gap-4 mx-auto max-w-4xl">
+<section class="flex flex-col gap-4 mx-auto max-w-4xl py-4">
 	{#each Object.entries(projectMap.entries) as [category, projects]}
 		<h2>{category}</h2>
 		<ul class="grid grid-cols-1 gap-4 list-none lg:grid-cols-3 md:grid-cols-2">

@@ -3,6 +3,22 @@ import { prerender } from '$app/server';
 export const getEvents = prerender(() => {
 	return [
 		{
+			name: 'Virtual Express',
+			description: '',
+			date: 'December 19th-21st, 2025',
+			location: 'Orlando, FL, USA',
+			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/90cd55ae-b836-431e-33a7-43d8a95b0900/event',
+			role: {
+				title: 'prodYakkai Contractor'
+			},
+			links: [
+				{
+					label: 'Announcement',
+					url: 'https://x.com/VT_Express/status/1962554898764951680'
+				}
+			]
+		},
+		{
 			name: 'OffKai Fest: Twilight Reverie',
 			description:
 				'One-night jazz lounge themed VTuber event during <a class="anchor" target="_blank" href="https://www.twitchcon.com">TwitchCon</a>.',
@@ -10,7 +26,7 @@ export const getEvents = prerender(() => {
 			location: 'San Diego, CA, USA',
 			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/ea343f8c-5712-42fa-d5ae-d8dd3ec29f00/event',
 			role: {
-				title: 'Telepresence'
+				title: 'Guest Presence'
 			},
 			links: [
 				{
