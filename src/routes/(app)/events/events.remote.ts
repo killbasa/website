@@ -9,7 +9,7 @@ export const getEvents = prerender(() => {
 			location: 'Orlando, FL, USA',
 			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/90cd55ae-b836-431e-33a7-43d8a95b0900/event',
 			role: {
-				title: 'prodYakkai Contractor'
+				title: 'AV Contractor'
 			},
 			links: [
 				{
