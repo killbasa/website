@@ -1,5 +1,5 @@
-import { fetchProject } from '$lib/github';
-import type { GithubProject } from '$lib/github';
+import { fetchGithubRepo } from '$src/lib/projects';
+import type { Project } from '$src/lib/projects';
 import { getRequestEvent, prerender } from '$app/server';
 
 export const getProjects = prerender(async () => {
@@ -8,26 +8,30 @@ export const getProjects = prerender(async () => {
 
 	const images = new Set<string>();
 
-	const entries: Record<string, Record<string, GithubProject>> = {
+	const entries: Record<string, Record<string, Project>> = {
 		Organization: {
-			srsdvr: await fetchProject('offkai/srs-dvr', { fetch })
+			srsdvr: await fetchGithubRepo('offkai/srs-dvr', { fetch })
 		},
 		Gifts: {
-			triggerphish: await fetchProject('killbasa/phishu', { fetch }),
-			monomonet: await fetchProject('killbasa/monomonet', { fetch })
+			triggerphish: await fetchGithubRepo('killbasa/phishu', { fetch }),
+			monomonet: await fetchGithubRepo('killbasa/monomonet', { fetch })
 		},
 		Personal: {
-			hive: await fetchProject('killbasa/hive', { fetch }),
-			vt: await fetchProject('killbasa/vt', { fetch }),
-			oshi: await fetchProject('killbasa/oshi-api', { fetch }),
-			amaneko: await fetchProject('killbasa/amaneko', { fetch }),
-			dotfiles: await fetchProject('killbasa/dotfiles', { fetch })
+			hive: await fetchGithubRepo('killbasa/hive', { fetch }),
+			vt: await fetchGithubRepo('killbasa/vt', { fetch }),
+			oshi: await fetchGithubRepo('killbasa/oshi-api', { fetch }),
+			amaneko: await fetchGithubRepo('killbasa/amaneko', { fetch }),
+			dotfiles: await fetchGithubRepo('killbasa/dotfiles', { fetch })
 		}
 	};
 
 	for (const projects of Object.values(entries)) {
 		for (const project of Object.values(projects)) {
-			images.add(project.owner.avatar_url);
+			if (!project.images) continue;
+
+			for (const image of Object.values(project.images)) {
+				images.add(image);
+			}
 		}
 	}
 

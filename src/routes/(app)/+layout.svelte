@@ -22,10 +22,10 @@
 	{/each}
 </svelte:head>
 
-<div class="flex flex-col min-h-screen bg-primary text-color-text">
+<div class="flex flex-col min-h-screen bg-primary text-primary">
 	<Header />
 
-	<main class="flex flex-col flex-1 p-2 lg:p-8 mt-12">
+	<main class="flex flex-col flex-1">
 		{@render children()}
 	</main>
 </div>

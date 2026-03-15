@@ -2,18 +2,31 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
+export type WebsiteProject = {
+	type: 'website';
+	name: string;
+	description: string;
+	url: string;
+	images?: {
+		thumbnail: string;
+	};
+};
+
 export type GithubProject = {
+	type: 'github';
 	name: string;
 	description: string;
 	url: string;
 	homepage?: string;
-	owner: {
-		avatar_url: string;
+	images: {
+		owner_icon: string;
 	};
 };
 
-// For hot-reloads
-const cache = {
+export type Project = WebsiteProject | GithubProject;
+
+// To not get rate limited by GitHub
+const githubCache = {
 	dir: resolve('node_modules/.cache/postfolio'),
 	fmtKey: (repo: string) => repo.replace('/', '_') + '.json',
 	async get(key: string): Promise<GithubProject | null> {
@@ -33,14 +46,14 @@ const cache = {
 	}
 };
 
-export const fetchProject = async (
+export const fetchGithubRepo = async (
 	repo: string,
 	options: {
 		fetch: typeof fetch;
 	}
 ): Promise<GithubProject> => {
 	if (!process.env.CI) {
-		const cached = await cache.get(repo);
+		const cached = await githubCache.get(repo);
 		if (cached) {
 			return cached;
 		}
@@ -70,18 +83,19 @@ export const fetchProject = async (
 
 	const data = await res.json();
 	const project: GithubProject = {
+		type: 'github',
 		name: data.name,
 		description: data.description,
 		url: data.html_url,
 		homepage: data.homepage,
-		owner: {
-			avatar_url: data.owner.avatar_url + '&s=64'
+		images: {
+			owner_icon: data.owner.avatar_url + '&s=64'
 		}
 	};
 
-	if (!process.env.CI && !cache.has(repo)) {
+	if (!process.env.CI && !githubCache.has(repo)) {
 		console.log(`caching repository "${repo}" to disk`);
-		await cache.set(repo, project);
+		await githubCache.set(repo, project);
 	}
 
 	if (!data.name || !data.description || !data.html_url) {

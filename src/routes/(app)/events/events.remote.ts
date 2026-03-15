@@ -1,7 +1,22 @@
 import { prerender } from '$app/server';
 
+export type EventList = {
+	name: string;
+	description: string;
+	date: string;
+	location: string;
+	image?: string;
+	role: {
+		title: string;
+	};
+	links: {
+		label: string;
+		url: string;
+	}[];
+}[];
+
 export const getEvents = prerender(() => {
-	return [
+	const events: EventList = [
 		{
 			name: 'Virtual Express',
 			description: '',
@@ -54,4 +69,6 @@ export const getEvents = prerender(() => {
 			]
 		}
 	];
+
+	return events;
 });
