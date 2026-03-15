@@ -228,10 +228,10 @@
 
 <section>
 	<div
-		class="h-[calc(100dvh-3rem)] bg-black flex flex-col text-gray-100 font-mono p-2 overflow-y-auto cursor-default border border-gray-700 rounded leading-5"
+		class="h-[calc(100dvh-3rem)] bg-black flex flex-col text-gray-100 font-mono p-2 overflow-y-auto cursor-default border-gray-700 leading-4.5 sm:leading-5 text-sm sm:text-base"
 	>
 		{#each lines as cmd (cmd.timestamp)}
-			<div class="flex gap-2">
+			<div class="flex gap-2 whitespace-nowrap">
 				<span class="text-green-400">{prefix}</span>
 				{cmd.command.input}
 			</div>
