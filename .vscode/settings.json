@@ -1,6 +1,6 @@
 {
-	"typescript.tsdk": "./node_modules/typescript/lib",
-	"typescript.referencesCodeLens.enabled": true,
+	"js/ts.tsdk.path": "./node_modules/typescript/lib",
+	"js/ts.referencesCodeLens.enabled": true,
 	"eslint.format.enable": true,
 	"eslint.validate": ["javascript", "typescript", "svelte"],
 	"editor.formatOnSave": true,

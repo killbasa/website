@@ -20,17 +20,17 @@
 
 <section class="flex items-center justify-center h-screen">
 	<time>
-		<span class="digit">{fmt(hour, 0)}</span>
-		<span class="digit">{fmt(hour, 1)}</span>
-		<span class="separator">:</span>
-		<span class="digit">{fmt(minute, 0)}</span>
-		<span class="digit">{fmt(minute, 1)}</span>
-		<span class="separator">:</span>
-		<span class="digit">{fmt(second, 0)}</span>
-		<span class="digit">{fmt(second, 1)}</span>
-		<span class="separator">:</span>
-		<span class="digit">{fmt(millisecond, 0)}</span>
-		<span class="digit">{fmt(millisecond, 1)}</span>
+		<span>{fmt(hour, 0)}</span>
+		<span>{fmt(hour, 1)}</span>
+		<span>:</span>
+		<span>{fmt(minute, 0)}</span>
+		<span>{fmt(minute, 1)}</span>
+		<span>:</span>
+		<span>{fmt(second, 0)}</span>
+		<span>{fmt(second, 1)}</span>
+		<span>:</span>
+		<span>{fmt(millisecond, 0)}</span>
+		<span>{fmt(millisecond, 1)}</span>
 	</time>
 </section>
 
@@ -38,16 +38,13 @@
 	@reference "../../../app.css";
 
 	time {
-		font-size: 164px;
-		line-height: 114px;
+		display: flex;
+		gap: -0.25rem;
+		font-size: 10rem;
 		font-variant-numeric: tabular-nums;
-	}
 
-	.digit {
-		margin-left: -50px;
-	}
-
-	.separator {
-		margin-left: -50px;
+		span {
+			display: inline-block;
+		}
 	}
 </style>

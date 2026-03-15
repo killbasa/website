@@ -18,7 +18,7 @@ enabled = false
 command = "yarn run build"
 
 [vars]
-NODE_VERSION = "24.13.1"
+NODE_VERSION = "24.14.0"
 
 [[routes]]
 pattern = "about.killbasa.com"
