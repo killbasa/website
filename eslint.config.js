@@ -6,7 +6,7 @@ const config = defineConfig(
 	...eslintConfig(cfg),
 	{
 		name: 'ignore',
-		ignores: ['.svelte-kit/', 'build/', 'node_modules/']
+		ignores: ['.svelte-kit/', '.yarn/', 'build/', 'node_modules/']
 	},
 	{
 		files: ['**/*.svelte'],

@@ -18,6 +18,23 @@ export type EventList = {
 export const getEvents = prerender(() => {
 	const events: EventList = [
 		{
+			name: 'Lost Signal',
+			description:
+				'Live VTuber rock concert in Toronto, Canada during <a class="anchor" target="_blank" href="https://oshiuplink.com/">OshiUplink</a>.',
+			date: 'May 1st, 2026',
+			location: 'Toronto, ON, Canada',
+			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/8bfa4c39-6559-4a18-4510-49ce01c75a00/event',
+			role: {
+				title: 'Event Director'
+			},
+			links: [
+				{
+					label: 'Announcement',
+					url: 'https://x.com/wsfrontieres/status/2036110731821588667'
+				}
+			]
+		},
+		{
 			name: 'Virtual Express',
 			description: '',
 			date: 'December 19th-21st, 2025',
@@ -59,7 +76,7 @@ export const getEvents = prerender(() => {
 			location: 'Birmingham, UK',
 			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/f4125651-f08e-4691-b1ec-cee130d59300/event',
 			role: {
-				title: 'Event Producer'
+				title: 'Event Director'
 			},
 			links: [
 				{
