@@ -25,7 +25,7 @@ export const getEvents = prerender(() => {
 			location: 'Toronto, ON, Canada',
 			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/8bfa4c39-6559-4a18-4510-49ce01c75a00/event',
 			role: {
-				title: 'Event Director'
+				title: 'Producer'
 			},
 			links: [
 				{
@@ -76,7 +76,7 @@ export const getEvents = prerender(() => {
 			location: 'Birmingham, UK',
 			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/f4125651-f08e-4691-b1ec-cee130d59300/event',
 			role: {
-				title: 'Event Director'
+				title: 'Producer'
 			},
 			links: [
 				{
