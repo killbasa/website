@@ -13,6 +13,10 @@ export type EventList = {
 		label: string;
 		url: string;
 	}[];
+	performers?: {
+		name: string;
+		url: string;
+	}[];
 }[];
 
 export const getEvents = prerender(() => {
@@ -32,6 +36,12 @@ export const getEvents = prerender(() => {
 					label: 'Announcement',
 					url: 'https://x.com/wsfrontieres/status/2036110731821588667'
 				}
+			],
+			performers: [
+				{ name: 'Raki Kazuki', url: 'https://x.com/RakiKazuki' },
+				{ name: 'Chikafuji Lisa', url: 'https://x.com/chikafujilisa' },
+				{ name: 'Tomoe Carmine', url: 'https://x.com/TomoeCarmine' },
+				{ name: 'Zephyrianna', url: 'https://x.com/zephyrianna' }
 			]
 		},
 		{
@@ -83,6 +93,12 @@ export const getEvents = prerender(() => {
 					label: 'Announcement',
 					url: 'https://x.com/wsfrontieres/status/1961142819210351004'
 				}
+			],
+			performers: [
+				{ name: 'TRiGGERPHiSH', url: 'https://x.com/TRiGGERPH1SH' },
+				{ name: 'Ekkomori', url: 'https://x.com/ekkomorii' },
+				{ name: 'Nyaruchuuu', url: 'https://x.com/nyaruchuuu' },
+				{ name: 'Raki Kazuki', url: 'https://x.com/RakiKazuki' }
 			]
 		}
 	];

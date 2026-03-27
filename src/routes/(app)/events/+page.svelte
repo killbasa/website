@@ -21,8 +21,8 @@
 					<p>{@html event.description}</p>
 				{/if}
 
-				<div class="flex gap-2">
-					{#if event.links.length > 0}
+				{#if event.links.length > 0}
+					<div class="flex gap-2">
 						<span>Links:</span>
 						<ul class="list-none gap-2 flex">
 							{#each event.links as link}
@@ -36,8 +36,26 @@
 								</li>
 							{/each}
 						</ul>
-					{/if}
-				</div>
+					</div>
+				{/if}
+
+				{#if event.performers && event.performers.length > 0}
+					<div class="flex gap-2">
+						<span>Performers:</span>
+						<ul class="list-none gap-2 flex">
+							{#each event.performers as performer}
+								<li>
+									<a
+										href={performer.url}
+										class="anchor"
+										target="_blank"
+										rel="noopener noreferrer">{performer.name}</a
+									>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
 
 				<div class="w-full max-w-sm mx-auto">
 					{#if event.image}
