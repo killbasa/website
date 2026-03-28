@@ -1,24 +1,34 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { SvelteDate } from 'svelte/reactivity';
 	import { page } from '$app/state';
 
+	const duration = page.url.searchParams.get('s') ?? '0';
 	const bgColor = page.url.searchParams.get('bg') ?? 'transparent';
 	const textColor = page.url.searchParams.get('text') ?? 'black';
 
-	const time = new SvelteDate();
+	const parsed = Number.parseInt(duration, 10);
+	const seconds = Number.isNaN(parsed) || parsed < 0 ? 0 : parsed;
+	const initialMs = (seconds + 1) * 1000;
 
-	const hour = $derived(time.getHours());
-	const minute = $derived(time.getMinutes());
-	const second = $derived(time.getSeconds());
-	const centisecond = $derived(Math.floor(time.getMilliseconds() / 10));
+	let remaining = $state<number>(initialMs);
+
+	const minute = $derived(Math.floor(remaining / 60_000));
+	const second = $derived(Math.floor((remaining % 60_000) / 1_000));
 
 	onMount(() => {
+		if (seconds === 0) {
+			remaining = 0;
+			return;
+		}
+
+		const start = Date.now();
 		let frame: number;
 
 		const run = () => {
-			time.setTime(Date.now());
-			frame = requestAnimationFrame(run);
+			remaining = Math.max(0, initialMs - (Date.now() - start));
+			if (remaining > 0) {
+				frame = requestAnimationFrame(run);
+			}
 		};
 
 		frame = requestAnimationFrame(run);
@@ -36,17 +46,11 @@
 	style="background-color: {bgColor}; color: {textColor}"
 >
 	<time>
-		<span>{fmtDigit(hour, 0)}</span>
-		<span>{fmtDigit(hour, 1)}</span>
-		<span>:</span>
 		<span>{fmtDigit(minute, 0)}</span>
 		<span>{fmtDigit(minute, 1)}</span>
 		<span>:</span>
 		<span>{fmtDigit(second, 0)}</span>
 		<span>{fmtDigit(second, 1)}</span>
-		<span>:</span>
-		<span>{fmtDigit(centisecond, 0)}</span>
-		<span>{fmtDigit(centisecond, 1)}</span>
 	</time>
 </section>
 
