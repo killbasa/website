@@ -11,7 +11,7 @@
 <section class="flex flex-col gap-4 mx-auto max-w-4xl py-4 p-2 lg:p-8">
 	<ul class="flex flex-col gap-8 list-none">
 		{#each events as event}
-			<li class="flex flex-col gap-3">
+			<li class="flex flex-col gap-2">
 				<div class="flex flex-col">
 					<h2 class="font-bold underline">{event.name} - {event.role.title}</h2>
 					<h3>{event.date} @ {event.location}</h3>
@@ -24,7 +24,7 @@
 				{#if event.links.length > 0}
 					<div class="flex gap-2">
 						<span>Links:</span>
-						<ul class="list-none gap-2 flex">
+						<ul class="list-none gap-2 flex flex-wrap">
 							{#each event.links as link}
 								<li>
 									<a
@@ -42,7 +42,7 @@
 				{#if event.performers && event.performers.length > 0}
 					<div class="flex gap-2">
 						<span>Performers:</span>
-						<ul class="list-none gap-2 flex">
+						<ul class="list-none gap-2 flex flex-wrap">
 							{#each event.performers as performer}
 								<li>
 									<a
