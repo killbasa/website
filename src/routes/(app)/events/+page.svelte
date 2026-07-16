@@ -31,7 +31,8 @@
 										href={link.url}
 										class="anchor"
 										target="_blank"
-										rel="noopener noreferrer">{link.label}</a
+										rel="noopener noreferrer"
+										>{link.label}</a
 									>
 								</li>
 							{/each}
@@ -49,7 +50,8 @@
 										href={performer.url}
 										class="anchor"
 										target="_blank"
-										rel="noopener noreferrer">{performer.name}</a
+										rel="noopener noreferrer"
+										>{performer.name}</a
 									>
 								</li>
 							{/each}
@@ -74,6 +76,7 @@
 								stroke-linejoin="round"
 								class="w-1/4 h-1/4 text-gray-400"
 							>
+								<title>No Image</title>
 								<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 								<line x1="12" y1="17" x2="12.01" y2="17" />
 							</svg>

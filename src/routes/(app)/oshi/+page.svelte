@@ -1,4 +1,5 @@
 <script lang="ts" module>
+	// biome-ignore lint/correctness/noUnusedVariables: used
 	type Command = {
 		input: string;
 		result: string[] | null;
@@ -9,7 +10,8 @@
 	import { onMount, tick } from 'svelte';
 	import type { EventHandler } from 'svelte/elements';
 
-	const SpanRegex = /<span style="(color: var\(\S+\);)">(https?:\/\/[^\s]+)<\/span>/g;
+	const SpanRegex =
+		/<span style="(color: var\(\S+\);)">(https?:\/\/[^\s]+)<\/span>/g;
 	const HelpCommandOutput: Command['result'] = [
 		'what is this?',
 		'  I have a public API hosted at oshi.killbasa.com that',
@@ -21,14 +23,17 @@
 		'  curl oshi.killbasa.com/list - Fetch a list of my oshi',
 		'  help - Display this help message',
 		'  clear - Clear the terminal screen',
-		'\n'
+		'\n',
 	];
 
 	const prefix = 'kb@127.0.0.1 ~ $';
 
 	const history = $state<string[]>(['help']);
 	const lines = $state<{ timestamp: number; command: Command }[]>([
-		{ timestamp: Date.now(), command: { input: 'help', result: HelpCommandOutput } }
+		{
+			timestamp: Date.now(),
+			command: { input: 'help', result: HelpCommandOutput },
+		},
 	]);
 
 	let input: HTMLInputElement;
@@ -45,8 +50,8 @@
 			const response = await fetch(url, {
 				method: 'GET',
 				headers: {
-					Accept: 'text/plain'
-				}
+					Accept: 'text/plain',
+				},
 			});
 			if (!response.ok) {
 				throw new Error(`fetch error, status: ${response.status}`);
@@ -78,7 +83,7 @@
 
 			addLine({
 				input: command,
-				result
+				result,
 			});
 		} else if (command === 'curl oshi.killbasa.com/list') {
 			loading = true;
@@ -87,29 +92,29 @@
 
 			addLine({
 				input: command,
-				result
+				result,
 			});
 		} else if (command === 'help') {
 			addLine({
 				input: command,
-				result: HelpCommandOutput
+				result: HelpCommandOutput,
 			});
 		} else if (command === 'clear' || command === 'c') {
 			lines.splice(0, lines.length);
 		} else if (command === '') {
 			addLine({
 				input: '',
-				result: []
+				result: [],
 			});
 		} else if (command.includes('rm -rf /')) {
 			addLine({
 				input: command,
-				result: [formatAnchor('https://www.youtube.com/watch?v=dQw4w9WgXcQ')]
+				result: [formatAnchor('https://www.youtube.com/watch?v=dQw4w9WgXcQ')],
 			});
 		} else {
 			addLine({
 				input: command,
-				result: null
+				result: null,
 			});
 		}
 
@@ -118,7 +123,9 @@
 		}
 	};
 
-	const handleSubmit: EventHandler<SubmitEvent, HTMLFormElement> = async (event) => {
+	const handleSubmit: EventHandler<SubmitEvent, HTMLFormElement> = async (
+		event,
+	) => {
 		event.preventDefault();
 		if (loading) return;
 
@@ -148,22 +155,28 @@
 		// https://talyian.github.io/ansicolors/
 		const coloredText = escapedText
 			// parse colors
-			// eslint-disable-next-line no-control-regex
+			// biome-ignore lint/suspicious/noControlCharactersInRegex: ansi color codes
 			.replace(/\x1b\[38;5;117m/g, '<span style="color: var(--light-blue);">')
-			// eslint-disable-next-line no-control-regex
+			// biome-ignore lint/suspicious/noControlCharactersInRegex: ansi color codes
 			.replace(/\x1b\[38;5;120m/g, '<span style="color: var(--green);">')
-			// eslint-disable-next-line no-control-regex
+			// biome-ignore lint/suspicious/noControlCharactersInRegex: ansi color codes
 			.replace(/\x1b\[38;5;196m/g, '<span style="color: var(--bright-red);">')
-			// eslint-disable-next-line no-control-regex
-			.replace(/\x1b\[38;5;226m/g, '<span style="color: var(--bright-yellow);">')
-			// eslint-disable-next-line no-control-regex
-			.replace(/\x1b\[38;5;129m/g, '<span style="color: var(--bright-purple);">')
-			// eslint-disable-next-line no-control-regex
+			.replace(
+				// biome-ignore lint/suspicious/noControlCharactersInRegex: ansi color codes
+				/\x1b\[38;5;226m/g,
+				'<span style="color: var(--bright-yellow);">',
+			)
+			.replace(
+				// biome-ignore lint/suspicious/noControlCharactersInRegex: ansi color codes
+				/\x1b\[38;5;129m/g,
+				'<span style="color: var(--bright-purple);">',
+			)
+			// biome-ignore lint/suspicious/noControlCharactersInRegex: ansi color codes
 			.replace(/\x1b\[0m/g, '</span>');
 
 		const textWithLinks = coloredText.replace(
 			SpanRegex,
-			'<a style="$1 text-decoration: underline;" href="$2" target="_blank">$2</a>'
+			'<a style="$1 text-decoration: underline;" href="$2" target="_blank">$2</a>',
 		);
 
 		return textWithLinks;
@@ -178,6 +191,7 @@
 	<title>Oshi | KB</title>
 </svelte:head>
 
+<!-- biome-ignore lint/a11y/noStaticElementInteractions: whatever -->
 <svelte:window
 	onmouseup={() => {
 		if (document.activeElement !== input) {
@@ -236,7 +250,9 @@
 				{cmd.command.input}
 			</div>
 			{#if cmd.command.result === null}
-				<span class="whitespace-pre">{cmd.command.input}: command not found</span>
+				<span class="whitespace-pre"
+					>{cmd.command.input}: command not found</span
+				>
 			{:else}
 				{#each cmd.command.result as line}
 					<span class="whitespace-pre">{@html line}</span>
@@ -244,7 +260,10 @@
 			{/if}
 		{/each}
 
-		<form onsubmit={handleSubmit} class="flex items-center rounded font-mono h-5">
+		<form
+			onsubmit={handleSubmit}
+			class="flex items-center rounded font-mono h-5"
+		>
 			<span class="text-green-400 whitespace-nowrap">{prefix}</span>
 			<input
 				name="command"
@@ -258,7 +277,7 @@
 </section>
 
 <style lang="postcss">
-	@reference '$src/app.css';
+	@reference "$src/app.css";
 
 	:root {
 		--light-blue: rgb(102, 204, 255);

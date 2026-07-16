@@ -28,7 +28,8 @@
 		};
 	});
 
-	const fmtDigit = (t: number, pos: number): string => t.toString().padStart(2, '0')[pos];
+	const fmtDigit = (t: number, pos: number): string =>
+		t.toString().padStart(2, '0')[pos];
 </script>
 
 <section
@@ -51,7 +52,7 @@
 </section>
 
 <style lang="postcss">
-	@reference '$src/app.css';
+	@reference "$src/app.css";
 
 	time {
 		display: flex;

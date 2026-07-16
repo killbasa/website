@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { getEvents } from './events/events.remote';
-	import { getProjects } from './projects/projects.remote';
 	import Header from '$components/Header.svelte';
 	import type { LayoutProps } from './$types';
+	import { getEvents } from './events/events.remote';
+	import { getProjects } from './projects/projects.remote';
 
 	let { children }: LayoutProps = $props();
 
@@ -11,7 +11,12 @@
 </script>
 
 <svelte:head>
-	<link rel="preload" fetchpriority="high" as="image" href="/images/ProfilePicture.webp" />
+	<link
+		rel="preload"
+		fetchpriority="high"
+		as="image"
+		href="/images/ProfilePicture.webp"
+	/>
 
 	{#each events as { image }}
 		<link rel="preload" as="image" href={image} />

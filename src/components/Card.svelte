@@ -3,14 +3,16 @@
 
 	let {
 		title,
-		children
+		children,
 	}: {
 		title?: string;
 		children: Snippet;
 	} = $props();
 </script>
 
-<div class="flex flex-col gap-2 p-4 w-fit rounded-lg shadow-md bg-alt text-start">
+<div
+	class="flex flex-col gap-2 p-4 w-fit rounded-lg shadow-md bg-alt text-start"
+>
 	{#if title}
 		<h2 class="text-lg">{title}</h2>
 	{/if}

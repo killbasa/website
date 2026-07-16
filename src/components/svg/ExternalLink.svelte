@@ -1,7 +1,7 @@
 <script lang="ts">
 	let {
 		width = 24,
-		height = 24
+		height = 24,
 	}: {
 		width?: number;
 		height?: number;
@@ -19,6 +19,7 @@
 	stroke-linejoin="round"
 	xmlns="http://www.w3.org/2000/svg"
 >
+	<title>External Link</title>
 	<path d="M15 3h6v6" />
 	<path d="M10 14 21 3" />
 	<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />

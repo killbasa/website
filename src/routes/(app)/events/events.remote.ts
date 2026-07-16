@@ -22,43 +22,63 @@ export type EventList = {
 export const getEvents = prerender(() => {
 	const events: EventList = [
 		{
+			name: 'Pengy Party',
+			description:
+				'Birthday party celebration for <a class="anchor" target="_blank" href="https://x.com/Pengy_Time">Pengy</a> including many kaigai idol and VTuber performances.',
+			date: 'June 20th, 2026',
+			location: 'Miami, FL, USA',
+			image:
+				'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/69ec90b1-a812-4dde-aa23-0af0b8a10500/event',
+			role: {
+				title: 'AV Manager',
+			},
+			links: [
+				{
+					label: 'Announcement',
+					url: 'https://x.com/wsfrontieres/status/2032612405784514643',
+				},
+			],
+		},
+		{
 			name: 'Lost Signal',
 			description:
 				'Live VTuber rock concert in Toronto, Canada during <a class="anchor" target="_blank" href="https://oshiuplink.com/">OshiUplink</a>.',
 			date: 'May 1st, 2026',
 			location: 'Toronto, ON, Canada',
-			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/8bfa4c39-6559-4a18-4510-49ce01c75a00/event',
+			image:
+				'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/8bfa4c39-6559-4a18-4510-49ce01c75a00/event',
 			role: {
-				title: 'Producer'
+				title: 'Producer',
 			},
 			links: [
 				{
 					label: 'Announcement',
-					url: 'https://x.com/wsfrontieres/status/2036110731821588667'
-				}
+					url: 'https://x.com/wsfrontieres/status/2036110731821588667',
+				},
 			],
 			performers: [
 				{ name: 'Raki Kazuki', url: 'https://x.com/RakiKazuki' },
 				{ name: 'Chikafuji Lisa', url: 'https://x.com/chikafujilisa' },
 				{ name: 'Tomoe Carmine', url: 'https://x.com/TomoeCarmine' },
-				{ name: 'Zephyrianna', url: 'https://x.com/zephyrianna' }
-			]
+				{ name: 'Zephyrianna', url: 'https://x.com/zephyrianna' },
+			],
 		},
 		{
 			name: 'Virtual Express',
 			description: '',
 			date: 'December 19th-21st, 2025',
 			location: 'Orlando, FL, USA',
-			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/90cd55ae-b836-431e-33a7-43d8a95b0900/event',
+			image:
+				'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/90cd55ae-b836-431e-33a7-43d8a95b0900/event',
 			role: {
-				title: 'AV Contractor'
+				title: 'AV Contractor',
 			},
 			links: [
 				{
 					label: 'Announcement',
-					url: 'https://x.com/VT_Express/status/1962554898764951680'
-				}
-			]
+					url: 'https://x.com/VT_Express/status/1962554898764951680',
+				},
+			],
 		},
 		{
 			name: 'OffKai Fest: Twilight Reverie',
@@ -66,17 +86,21 @@ export const getEvents = prerender(() => {
 				'One-night jazz lounge themed VTuber event during <a class="anchor" target="_blank" href="https://www.twitchcon.com">TwitchCon</a>.',
 			date: 'October 18th, 2025',
 			location: 'San Diego, CA, USA',
-			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/ea343f8c-5712-42fa-d5ae-d8dd3ec29f00/event',
+			image:
+				'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/ea343f8c-5712-42fa-d5ae-d8dd3ec29f00/event',
 			role: {
-				title: 'Guest Presence'
+				title: 'Guest Presence',
 			},
 			links: [
 				{
 					label: 'Announcement',
-					url: 'https://x.com/OffKaiExpo/status/1957473102671048905'
+					url: 'https://x.com/OffKaiExpo/status/1957473102671048905',
 				},
-				{ label: 'Recap Video', url: 'https://www.youtube.com/watch?v=OIjxveblyVE' }
-			]
+				{
+					label: 'Recap Video',
+					url: 'https://www.youtube.com/watch?v=OIjxveblyVE',
+				},
+			],
 		},
 		{
 			name: 'Wallcon 2025',
@@ -84,23 +108,24 @@ export const getEvents = prerender(() => {
 				'Live outdoor VTuber performance in Birmingham, UK during <a class="anchor" target="_blank" href="https://www.vexpo.uk">VeXpo</a>.',
 			date: 'September 4th, 2025',
 			location: 'Birmingham, UK',
-			image: 'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/f4125651-f08e-4691-b1ec-cee130d59300/event',
+			image:
+				'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/f4125651-f08e-4691-b1ec-cee130d59300/event',
 			role: {
-				title: 'Producer'
+				title: 'Producer',
 			},
 			links: [
 				{
 					label: 'Announcement',
-					url: 'https://x.com/wsfrontieres/status/1961142819210351004'
-				}
+					url: 'https://x.com/wsfrontieres/status/1961142819210351004',
+				},
 			],
 			performers: [
 				{ name: 'TRiGGERPHiSH', url: 'https://x.com/TRiGGERPH1SH' },
 				{ name: 'Ekkomori', url: 'https://x.com/ekkomorii' },
 				{ name: 'Nyaruchuuu', url: 'https://x.com/nyaruchuuu' },
-				{ name: 'Raki Kazuki', url: 'https://x.com/RakiKazuki' }
-			]
-		}
+				{ name: 'Raki Kazuki', url: 'https://x.com/RakiKazuki' },
+			],
+		},
 	];
 
 	return events;

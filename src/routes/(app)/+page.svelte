@@ -23,7 +23,10 @@
 	</header>
 
 	<div>
-		<p>Hello! I'm Shane, a Software Engineer that occasionally helps run VTuber events.</p>
+		<p>
+			Hello! I'm Shane, a Software Engineer that occasionally helps run VTuber
+			events.
+		</p>
 	</div>
 
 	<Card>
@@ -44,7 +47,8 @@
 			<li class="flex items-center gap-1">
 				<Twitter height={20} width={20} />
 				<span
-					>Twitter: <a class="anchor" href="https://twitter.com/Killbasa1" target="_blank"
+					>Twitter:
+					<a class="anchor" href="https://twitter.com/Killbasa1" target="_blank"
 						>@killbasa1</a
 					></span
 				>
@@ -52,7 +56,8 @@
 			<li class="flex items-center gap-1">
 				<GitHub height={20} width={20} />
 				<span
-					>GitHub: <a class="anchor" href="https://github.com/killbasa" target="_blank"
+					>GitHub:
+					<a class="anchor" href="https://github.com/killbasa" target="_blank"
 						>killbasa</a
 					></span
 				>

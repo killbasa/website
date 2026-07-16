@@ -1,14 +1,14 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import ExternalLink from './svg/ExternalLink.svelte';
 	import GitHub from './svg/GitHub.svelte';
-	import type { Snippet } from 'svelte';
 
 	let {
 		title,
 		href,
 		projectHref,
 		image,
-		children
+		children,
 	}: {
 		title: string;
 		href?: string;
@@ -33,6 +33,7 @@
 			</div>
 			<div class="flex flex-row items-center gap-2">
 				{#if href}
+					<!-- biome-ignore lint/a11y/useValidAnchor: valid href -->
 					<a class="anchor" {href} target="_blank">
 						<ExternalLink />
 					</a>

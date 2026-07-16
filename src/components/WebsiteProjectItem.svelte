@@ -1,11 +1,11 @@
 <script lang="ts">
-	import ExternalLink from './svg/ExternalLink.svelte';
 	import type { Snippet } from 'svelte';
+	import ExternalLink from './svg/ExternalLink.svelte';
 
 	let {
 		title,
 		href,
-		children
+		children,
 	}: {
 		title: string;
 		href: string;
@@ -20,6 +20,7 @@
 				<h3>{title}</h3>
 			</div>
 			<div class="flex flex-row items-center gap-2">
+				<!-- biome-ignore lint/a11y/useValidAnchor: valid href -->
 				<a class="anchor" {href} target="_blank">
 					<ExternalLink />
 				</a>
