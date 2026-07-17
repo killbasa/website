@@ -25,7 +25,6 @@ export default defineConfig({
 				$src: resolve('./src'),
 			},
 			output: {
-				preloadStrategy: 'modulepreload',
 				bundleStrategy: 'inline',
 			},
 		}),

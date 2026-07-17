@@ -1,6 +1,7 @@
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
+import { env } from '$env/dynamic/private';
 
 export type WebsiteProject = {
 	type: 'website';
@@ -67,6 +68,7 @@ export const fetchGithubRepo = async (
 		headers: {
 			Accept: 'application/vnd.github+json',
 			'X-GitHub-Api-Version': '2022-11-28',
+			Authorization: `Bearer ${env.GITHUB_TOKEN}`,
 		},
 	});
 
