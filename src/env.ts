@@ -3,7 +3,9 @@ import { z } from 'zod/v4';
 
 export const variables = defineEnvVars({
 	GITHUB_TOKEN: {
+		description: 'GitHub token for accessing the GitHub API',
 		public: false,
-		validate: z.string().optional(),
+		static: false,
+		schema: z.string().optional(),
 	},
 });
