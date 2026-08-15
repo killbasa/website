@@ -33,7 +33,6 @@
 			</div>
 			<div class="flex flex-row items-center gap-2">
 				{#if href}
-					<!-- biome-ignore lint/a11y/useValidAnchor: valid href -->
 					<a class="anchor" {href} target="_blank">
 						<ExternalLink />
 					</a>

@@ -26,6 +26,11 @@
 						"style": "separatedType"
 					}
 				}
+			},
+			"nursery": {
+				"noSvelteLegacyConst": "error",
+				"noSvelteUnnecessaryStateWrap": "error",
+				"useSvelteRequireEachKey": "error"
 			}
 		}
 	},

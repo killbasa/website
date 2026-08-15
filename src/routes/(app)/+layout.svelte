@@ -18,11 +18,11 @@
 		href="/images/ProfilePicture.webp"
 	/>
 
-	{#each events as { image }}
+	{#each events as { image }, i (i)}
 		<link rel="preload" as="image" href={image} />
 	{/each}
 
-	{#each projects.images as image}
+	{#each projects.images as image, i (i)}
 		<link rel="preload" as="image" href={image} />
 	{/each}
 </svelte:head>

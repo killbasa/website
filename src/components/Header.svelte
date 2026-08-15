@@ -10,9 +10,8 @@
 <header class="flex justify-center">
 	<nav class="">
 		<ul class="flex h-12">
-			{#each links as { href, label }}
+			{#each links as { href, label }, i (i)}
 				<li>
-					<!-- biome-ignore lint/a11y/useValidAnchor: valid href -->
 					<a {href} class="flex items-center h-full px-4 hover:underline">
 						{label}
 					</a>

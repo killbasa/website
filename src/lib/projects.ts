@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { env } from '$env/dynamic/private';
+import { GITHUB_TOKEN } from '$app/env/private';
 
 export type WebsiteProject = {
 	type: 'website';
@@ -28,7 +28,7 @@ export type Project = WebsiteProject | GithubProject;
 
 // To not get rate limited by GitHub
 const githubCache = {
-	dir: resolve('node_modules/.cache/postfolio'),
+	dir: resolve('node_modules/.cache/portfolio'),
 	fmtKey: (repo: string) => `${repo.replace('/', '_')}.json`,
 	async get(key: string): Promise<GithubProject | null> {
 		const path = join(this.dir, this.fmtKey(key));
@@ -68,7 +68,7 @@ export const fetchGithubRepo = async (
 		headers: {
 			Accept: 'application/vnd.github+json',
 			'X-GitHub-Api-Version': '2022-11-28',
-			Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+			Authorization: `Bearer ${GITHUB_TOKEN}`,
 		},
 	});
 

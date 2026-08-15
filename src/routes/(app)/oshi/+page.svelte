@@ -1,5 +1,4 @@
 <script lang="ts" module>
-	// biome-ignore lint/correctness/noUnusedVariables: used
 	type Command = {
 		input: string;
 		result: string[] | null;
@@ -191,7 +190,6 @@
 	<title>Oshi | KB</title>
 </svelte:head>
 
-<!-- biome-ignore lint/a11y/noStaticElementInteractions: whatever -->
 <svelte:window
 	onmouseup={() => {
 		if (document.activeElement !== input) {
@@ -254,7 +252,7 @@
 					>{cmd.command.input}: command not found</span
 				>
 			{:else}
-				{#each cmd.command.result as line}
+				{#each cmd.command.result as line, i (i)}
 					<span class="whitespace-pre">{@html line}</span>
 				{/each}
 			{/if}

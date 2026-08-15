@@ -10,7 +10,7 @@
 
 <section class="flex flex-col gap-4 mx-auto max-w-4xl py-4 p-2 lg:p-8">
 	<ul class="flex flex-col gap-8 list-none">
-		{#each events as event}
+		{#each events as event (event.name)}
 			<li class="flex flex-col gap-2">
 				<div class="flex flex-col">
 					<h2 class="font-bold underline">{event.name} - {event.role.title}</h2>
@@ -25,7 +25,7 @@
 					<div class="flex gap-2">
 						<span>Links:</span>
 						<ul class="list-none gap-2 flex flex-wrap">
-							{#each event.links as link}
+							{#each event.links as link (link.url)}
 								<li>
 									<a
 										href={link.url}
@@ -44,7 +44,7 @@
 					<div class="flex gap-2">
 						<span>Performers:</span>
 						<ul class="list-none gap-2 flex flex-wrap">
-							{#each event.performers as performer}
+							{#each event.performers as performer (performer.name)}
 								<li>
 									<a
 										href={performer.url}

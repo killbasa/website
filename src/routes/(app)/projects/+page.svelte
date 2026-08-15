@@ -11,10 +11,10 @@
 </svelte:head>
 
 <section class="flex flex-col gap-4 mx-auto max-w-4xl py-4 p-2 lg:p-8">
-	{#each Object.entries(projectMap.entries) as [ category, projects ]}
+	{#each Object.entries(projectMap.entries) as [category, projects] (category)}
 		<h2>{category}</h2>
 		<ul class="grid grid-cols-1 gap-4 list-none lg:grid-cols-3 md:grid-cols-2">
-			{#each Object.values(projects) as project}
+			{#each Object.values(projects) as project (project.name)}
 				{#if project.type === 'github'}
 					<GithubProjectItem
 						title={project.name}
