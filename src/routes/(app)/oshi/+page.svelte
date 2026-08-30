@@ -275,7 +275,7 @@
 </section>
 
 <style lang="postcss">
-	@reference "$src/app.css";
+	@reference "#src/app.css";
 
 	:root {
 		--light-blue: rgb(102, 204, 255);

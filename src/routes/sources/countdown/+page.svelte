@@ -56,7 +56,7 @@
 </section>
 
 <style lang="postcss">
-	@reference "$src/app.css";
+	@reference "#src/app.css";
 
 	time {
 		display: flex;

@@ -10,6 +10,11 @@
 		"url": "https://github.com/killbasa/website.git"
 	},
 	"homepage": "https://github.com/killbasa/website",
+	"imports": {
+		"#components/*": "./src/components/*",
+		"#lib/*": "./src/lib/*",
+		"#src/*": "./src/*"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -21,25 +26,25 @@
 		"ci": "npm run check && npm run lint && npm run build"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.8",
+		"@biomejs/biome": "2.5.11",
 		"@sveltejs/adapter-cloudflare": "^7.2.9",
-		"@sveltejs/kit": "^2.70.2",
+		"@sveltejs/kit": "^2.70.3",
 		"@sveltejs/vite-plugin-svelte": "^7.3.0",
 		"@tailwindcss/vite": "^4.3.3",
-		"@types/node": "^26.2.0",
+		"@types/node": "^26.4.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^17.3.0",
+		"lint-staged": "^17.4.1",
 		"prettier": "^3.9.6",
-		"svelte": "^5.56.9",
+		"svelte": "^5.57.0",
 		"svelte-check": "^4.7.6",
 		"tailwindcss": "^4.3.3",
 		"typescript": "6.0.3",
-		"vite": "8.2.1",
-		"wrangler": "^4.123.0",
-		"zod": "4.4.3"
+		"vite": "8.2.2",
+		"wrangler": "^4.127.1",
+		"zod": "4.5.4"
 	},
 	"resolutions": {
-		"@sveltejs/kit": "3.0.0-next.23",
+		"@sveltejs/kit": "3.0.0-next.25",
 		"@sveltejs/adapter-cloudflare": "8.0.0-next.6"
 	},
 	"lint-staged": {

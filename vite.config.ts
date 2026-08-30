@@ -1,4 +1,3 @@
-import { resolve } from 'node:path';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
@@ -10,19 +9,16 @@ export default defineConfig({
 		tailwindcss(),
 		sveltekit({
 			preprocess: vitePreprocess(),
+			adapter: adapter(),
 			compilerOptions: {
+				modernAst: true,
 				runes: true,
 				experimental: {
 					async: true,
 				},
 			},
-			adapter: adapter(),
 			experimental: {
 				remoteFunctions: true,
-			},
-			alias: {
-				$components: resolve('./src/components'),
-				$src: resolve('./src'),
 			},
 			output: {
 				bundleStrategy: 'inline',

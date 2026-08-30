@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Card from '$components/Card.svelte';
-	import Discord from '$components/svg/Discord.svelte';
-	import Email from '$components/svg/Email.svelte';
-	import GitHub from '$components/svg/GitHub.svelte';
-	import Twitter from '$components/svg/Twitter.svelte';
+	import Card from '#components/Card.svelte';
+	import Discord from '#components/svg/Discord.svelte';
+	import Email from '#components/svg/Email.svelte';
+	import GitHub from '#components/svg/GitHub.svelte';
+	import Twitter from '#components/svg/Twitter.svelte';
 </script>
 
 <svelte:head>

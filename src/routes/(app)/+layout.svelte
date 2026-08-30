@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from '$components/Header.svelte';
+	import Header from '#components/Header.svelte';
 	import type { LayoutProps } from './$types';
 	import { getEvents } from './events/events.remote';
 	import { getProjects } from './projects/projects.remote';

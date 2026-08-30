@@ -1,6 +1,6 @@
+import type { Project } from '#lib/projects.js';
+import { fetchGithubRepo } from '#lib/projects.js';
 import { getRequestEvent, prerender } from '$app/server';
-import type { Project } from '$src/lib/projects';
-import { fetchGithubRepo } from '$src/lib/projects';
 
 export const getProjects = prerender(async () => {
 	const event = getRequestEvent();

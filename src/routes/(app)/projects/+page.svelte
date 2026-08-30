@@ -1,6 +1,6 @@
 <script lang="ts">
-	import GithubProjectItem from '$components/GithubProjectItem.svelte';
-	import WebsiteProjectItem from '$components/WebsiteProjectItem.svelte';
+	import GithubProjectItem from '#components/GithubProjectItem.svelte';
+	import WebsiteProjectItem from '#components/WebsiteProjectItem.svelte';
 	import { getProjects } from './projects.remote';
 
 	const projectMap = await getProjects();
