@@ -23,29 +23,30 @@
 		"check": "npm run sync && svelte-check --tsconfig ./tsconfig.json",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
-		"ci": "npm run check && npm run lint && npm run build"
+		"ci": "npm run check && npm run lint && npm run build",
+		"prepare": "husky"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.11",
+		"@biomejs/biome": "2.5.12",
 		"@sveltejs/adapter-cloudflare": "^7.2.9",
 		"@sveltejs/kit": "^2.70.3",
 		"@sveltejs/vite-plugin-svelte": "^7.3.0",
 		"@tailwindcss/vite": "^4.3.3",
-		"@types/node": "^26.4.0",
+		"@types/node": "^26.5.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^17.4.1",
+		"lint-staged": "^17.5.0",
 		"prettier": "^3.9.6",
 		"svelte": "^5.57.0",
 		"svelte-check": "^4.7.6",
 		"tailwindcss": "^4.3.3",
 		"typescript": "6.0.3",
 		"vite": "8.2.2",
-		"wrangler": "^4.127.1",
+		"wrangler": "^4.130.0",
 		"zod": "4.5.4"
 	},
 	"resolutions": {
-		"@sveltejs/kit": "3.0.0-next.25",
-		"@sveltejs/adapter-cloudflare": "8.0.0-next.6"
+		"@sveltejs/kit": "3.0.0-next.27",
+		"@sveltejs/adapter-cloudflare": "8.0.0-next.7"
 	},
 	"lint-staged": {
 		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
