@@ -52,8 +52,11 @@
 		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
 			"biome check --write --no-errors-on-unmatched"
 		],
-		"*.md": [
-			"prettier --write --log-level=warn \"**/*.md\""
+		"*.svelte": [
+			"biome check --write \"**/*.svelte\""
+		],
+		"*.{md,yml,yaml}": [
+			"prettier --write --log-level=warn \"**/*.{md,yml,yaml}\""
 		]
 	},
 	"engines": {
