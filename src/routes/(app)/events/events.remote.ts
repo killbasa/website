@@ -22,9 +22,36 @@ export type EventList = {
 export const getEvents = prerender(() => {
 	const events: EventList = [
 		{
+			name: 'URL//IRL',
+			description:
+				'A hybrid VTuber and IRL idol event during <a class="anchor" target="_blank" href="https://moshiexpo.com/">MO\'shi Expo</a>.',
+			date: 'September 11th, 2026',
+			location: 'St. Louis, MO, USA',
+			image:
+				'https://imagedelivery.net/R3CuIrz6zPUOHovUJa7jXw/78446b3a-4f35-4eb6-60ad-9ef4defe9200/event',
+			role: {
+				title: 'Talent Liaison & Broadcast Manager',
+			},
+			links: [
+				{
+					label: 'Announcement',
+					url: 'https://x.com/wsfrontieres/status/2094955751433494902',
+				},
+			],
+			performers: [
+				{ name: 'TRiGGERPHiSH', url: 'https://x.com/TRiGGERPH1SH' },
+				{ name: 'Lazuli', url: 'https://x.com/l4zufish' },
+				{ name: 'Nana Asteria', url: 'https://x.com/NanaAsteria' },
+				{ name: 'Nene Amano', url: 'https://x.com/NeneAmanoVTuber' },
+				{ name: 'Yurapico', url: 'https://x.com/yura_burstgirl' },
+				{ name: 'Rêvolie', url: 'https://x.com/revolieofficial' },
+				{ name: 'RØSEBYTE', url: 'https://x.com/_rosebyte' },
+			],
+		},
+		{
 			name: 'Pengy Party',
 			description:
-				'Birthday party celebration for <a class="anchor" target="_blank" href="https://x.com/Pengy_Time">Pengy</a> including many kaigai idol and VTuber performances.',
+				'Birthday party celebration for <a class="anchor" target="_blank" href="https://x.com/Pengy_Time">Pengy</a> featuring many kaigai idol and VTuber performances.',
 			date: 'June 20th, 2026',
 			location: 'Miami, FL, USA',
 			image:
