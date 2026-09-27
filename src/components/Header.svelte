@@ -9,7 +9,7 @@
 
 <header class="flex justify-center">
 	<nav class="">
-		<ul class="flex h-12">
+		<ul class="flex h-header">
 			{#each links as { href, label }, i (i)}
 				<li>
 					<a {href} class="flex items-center h-full px-4 hover:underline">

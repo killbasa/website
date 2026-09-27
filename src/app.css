@@ -4,6 +4,7 @@
 	--background: rgba(38, 41, 60, 1); /* #26293C */
 	--background-alt: rgba(26, 26, 29, 1); /* #1a1a1d; */
 	--color-text: rgba(255, 255, 245, 0.86); /* #fffff5 */
+	--spacing-header: 3rem;
 }
 
 @font-face {

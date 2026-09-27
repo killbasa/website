@@ -27,18 +27,19 @@
 
 	const prefix = 'kb@127.0.0.1 ~ $';
 
-	const history = $state<string[]>(['help']);
-	const lines = $state<{ timestamp: number; command: Command }[]>([
+	const history: string[] = ['help'];
+	const lines = $state<{ id: number; command: Command }[]>([
 		{
-			timestamp: Date.now(),
+			id: 0,
 			command: { input: 'help', result: HelpCommandOutput },
 		},
 	]);
 
+	let terminal: HTMLDivElement;
 	let input: HTMLInputElement;
-	let cmdCursor = $state(-1);
+	let cmdCursor = -1;
 	let loading = $state(false);
-	let lineId = $state(0);
+	let lineId = 0;
 
 	function formatAnchor(url: string): string {
 		return `<a style="color: var(--light-blue); text-decoration: underline;" href="${url}" target="_blank">${url}</a>`;
@@ -51,6 +52,7 @@
 				headers: {
 					Accept: 'text/plain',
 				},
+				signal: AbortSignal.timeout(10_000),
 			});
 			if (!response.ok) {
 				throw new Error(`fetch error, status: ${response.status}`);
@@ -61,13 +63,16 @@
 			return data.split('\n').map(ansiToHtml);
 		} catch (err) {
 			console.error(err);
+			if (err instanceof DOMException && err.name === 'TimeoutError') {
+				return ['request timed out'];
+			}
 			return ['error fetching data'];
 		}
 	};
 
 	const addLine = (command: Command): void => {
 		lineId += 1;
-		lines.push({ timestamp: lineId, command });
+		lines.push({ id: lineId, command });
 
 		if (lines.length > 50) {
 			lines.shift();
@@ -136,8 +141,48 @@
 		cmdCursor = -1;
 		form.reset();
 
+		await scrollToBottom();
+	};
+
+	const scrollToBottom = async (): Promise<void> => {
 		await tick(); // wait for DOM update
-		input.scrollIntoView(); // scroll to bottom
+		terminal.scrollTop = terminal.scrollHeight;
+	};
+
+	const handleKeydown: EventHandler<KeyboardEvent, HTMLInputElement> = (
+		event,
+	) => {
+		if (event.key === 'ArrowUp') {
+			if (history.length === 0) return;
+
+			cmdCursor += 1;
+			if (cmdCursor >= history.length) {
+				cmdCursor = history.length - 1;
+			}
+
+			input.value = history[history.length - 1 - cmdCursor];
+
+			event.preventDefault();
+		} else if (event.key === 'ArrowDown') {
+			if (history.length === 0) return;
+
+			cmdCursor -= 1;
+			if (cmdCursor < -1) {
+				cmdCursor = -1;
+			}
+
+			if (cmdCursor === -1) {
+				input.value = '';
+			} else {
+				input.value = history[history.length - 1 - cmdCursor];
+			}
+
+			event.preventDefault();
+		} else if (event.ctrlKey && event.key.toLowerCase() === 'c') {
+			input.value = '';
+			cmdCursor = -1;
+			event.preventDefault();
+		}
 	};
 
 	function ansiToHtml(text: string): string {
@@ -183,6 +228,7 @@
 
 	onMount(async () => {
 		await runCommand('curl oshi.killbasa.com');
+		await scrollToBottom();
 	});
 </script>
 
@@ -191,7 +237,7 @@
 </svelte:head>
 
 <svelte:window
-	onmouseup={() => {
+	onmouseup={(event) => {
 		if (document.activeElement !== input) {
 			const selected = window.getSelection()?.toString();
 			if (selected && selected.length > 0) {
@@ -199,75 +245,56 @@
 				navigator.clipboard.writeText(selected).catch(() => {});
 			}
 
-			input.focus();
+			// don't pop the mobile keyboard when tapping a link
+			if (event.target instanceof Element && event.target.closest('a')) {
+				return;
+			}
+
+			input.focus({ preventScroll: true });
 			input.selectionStart = input.value.length;
-		}
-	}}
-	onkeydown={(event) => {
-		if (event.code === 'ArrowUp') {
-			if (history.length === 0) return;
-
-			cmdCursor += 1;
-			if (cmdCursor >= history.length) {
-				cmdCursor = history.length - 1;
-			}
-
-			input.value = history[history.length - 1 - cmdCursor];
-
-			event.preventDefault();
-		} else if (event.code === 'ArrowDown') {
-			if (history.length === 0) return;
-
-			cmdCursor -= 1;
-			if (cmdCursor < -1) {
-				cmdCursor = -1;
-			}
-
-			if (cmdCursor === -1) {
-				input.value = '';
-			} else {
-				input.value = history[history.length - 1 - cmdCursor];
-			}
-
-			event.preventDefault();
-		} else if (event.ctrlKey && event.code === 'KeyC') {
-			input.value = '';
-			cmdCursor = -1;
-			event.preventDefault();
 		}
 	}}
 />
 
 <section>
 	<div
-		class="h-[calc(100dvh-3rem)] bg-black flex flex-col text-gray-100 font-mono p-2 overflow-y-auto cursor-default border-gray-700 leading-4.5 sm:leading-5 text-sm sm:text-base"
+		class="terminal h-[calc(100dvh-var(--spacing-header))] bg-black flex flex-col text-gray-100 font-mono p-2 overflow-y-auto cursor-default leading-4.5 sm:leading-5 text-sm sm:text-base"
+		bind:this={terminal}
 	>
-		{#each lines as cmd (cmd.timestamp)}
-			<div class="flex gap-2 whitespace-nowrap">
-				<span class="text-green-400">{prefix}</span>
-				{cmd.command.input}
-			</div>
-			{#if cmd.command.result === null}
-				<span class="whitespace-pre"
-					>{cmd.command.input}: command not found</span
-				>
-			{:else}
-				{#each cmd.command.result as line, i (i)}
-					<span class="whitespace-pre">{@html line}</span>
-				{/each}
-			{/if}
-		{/each}
+		<div role="log" aria-label="Terminal output" class="flex flex-col">
+			{#each lines as cmd (cmd.id)}
+				<div class="flex gap-2 whitespace-nowrap">
+					<span class="text-green-400">{prefix}</span>
+					{cmd.command.input}
+				</div>
+				{#if cmd.command.result === null}
+					<span class="whitespace-pre"
+						>{cmd.command.input}: command not found</span
+					>
+				{:else}
+					{#each cmd.command.result as line, i (i)}
+						<span class="whitespace-pre">{@html line}</span>
+					{/each}
+				{/if}
+			{/each}
 
-		<form
-			onsubmit={handleSubmit}
-			class="flex items-center rounded font-mono h-5"
-		>
+			{#if loading}
+				<span class="whitespace-pre text-gray-400">fetching...</span>
+			{/if}
+		</div>
+
+		<form onsubmit={handleSubmit} class="flex items-center h-5">
 			<span class="text-green-400 whitespace-nowrap">{prefix}</span>
 			<input
 				name="command"
 				type="text"
+				aria-label="Terminal command"
 				class="pl-2 outline-0 w-full cursor-default bg-transparent"
 				autocomplete="off"
+				autocapitalize="off"
+				autocorrect="off"
+				spellcheck="false"
+				onkeydown={handleKeydown}
 				bind:this={input}
 			/>
 		</form>
@@ -277,7 +304,7 @@
 <style lang="postcss">
 	@reference "#src/app.css";
 
-	:root {
+	.terminal {
 		--light-blue: rgb(102, 204, 255);
 		--green: rgb(102, 255, 102);
 		--bright-red: rgb(255, 0, 0);
